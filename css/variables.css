@@ -1,0 +1,146 @@
+/* ==========================================
+   COMICORA V1
+   DESIGN VARIABLES
+========================================== */
+
+:root {
+
+    /* ======================================
+       BRAND COLORS
+    ======================================= */
+
+    --color-primary: #00B14F;
+    --color-primary-dark: #008F40;
+    --color-primary-light: #E8F8EF;
+
+    /* ======================================
+       BACKGROUND
+    ======================================= */
+
+    --color-background: #FFFFFF;
+    --color-surface: #F7F8F7;
+    --color-surface-dark: #071C12;
+
+    /* ======================================
+       TEXT
+    ======================================= */
+
+    --color-text: #151515;
+    --color-text-secondary: #6B7280;
+    --color-text-muted: #9CA3AF;
+    --color-text-white: #FFFFFF;
+
+    /* ======================================
+       BORDER
+    ======================================= */
+
+    --color-border: #E5E7EB;
+    --color-border-dark: #D1D5DB;
+
+    /* ======================================
+       STATUS
+    ======================================= */
+
+    --color-success: #16A34A;
+    --color-error: #DC2626;
+    --color-warning: #F59E0B;
+
+    /* ======================================
+       READER
+    ======================================= */
+
+    --reader-background: #000000;
+
+    /* ======================================
+       FOOTER
+    ======================================= */
+
+    --footer-background: #071C12;
+    --footer-primary: #00B14F;
+    --footer-text: #FFFFFF;
+    --footer-text-secondary: #A7B8AF;
+
+    /* ======================================
+       TYPOGRAPHY
+    ======================================= */
+
+    --font-primary: "DM Sans", sans-serif;
+
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* ======================================
+       FONT SIZES
+    ======================================= */
+
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    --font-size-2xl: 24px;
+    --font-size-3xl: 32px;
+
+    /* ======================================
+       LINE HEIGHT
+    ======================================= */
+
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.7;
+
+    /* ======================================
+       CONTAINER
+    ======================================= */
+
+    --container-width: 1200px;
+    --container-padding: 20px;
+
+    /* ======================================
+       BORDER RADIUS
+    ======================================= */
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 20px;
+    --radius-full: 999px;
+
+    /* ======================================
+       SHADOW
+    ======================================= */
+
+    --shadow-sm:
+        0 2px 8px rgba(0, 0, 0, 0.05);
+
+    --shadow-md:
+        0 6px 20px rgba(0, 0, 0, 0.08);
+
+    --shadow-lg:
+        0 12px 40px rgba(0, 0, 0, 0.12);
+
+    /* ======================================
+       TRANSITION
+    ======================================= */
+
+    --transition-fast:
+        0.15s ease;
+
+    --transition-normal:
+        0.25s ease;
+
+    --transition-slow:
+        0.4s ease;
+
+    /* ======================================
+       Z-INDEX
+    ======================================= */
+
+    --z-header: 1000;
+    --z-dropdown: 1100;
+    --z-modal: 2000;
+    --z-bottom-nav: 1000;
+
+}

@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#00B14F"
+    >
+
+    <meta
+        name="description"
+        content="Login ke Comicora untuk menyimpan bookmark dan riwayat bacaan."
+    >
+
+    <title>Login - Comicora</title>
+
+    <link
+        rel="manifest"
+        href="../manifest.json"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../assets/images/logo/favicon.png"
+    >
+
+    <!-- Google Font -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Global CSS -->
+    <link
+        rel="stylesheet"
+        href="../css/reset.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/variables.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/global.css"
+    >
+
+    <style>
+        /*
+        ========================================
+        LOGIN PAGE
+        ========================================
+        */
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(0, 177, 79, 0.08),
+                    transparent 32%
+                ),
+                var(--background);
+        }
+
+        .login-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 16px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        /*
+        ========================================
+        BRAND
+        ========================================
+        */
+
+        .login-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .login-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text);
+            text-decoration: none;
+            margin-bottom: 18px;
+        }
+
+        .login-logo-mark {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            color: #ffffff;
+            border-radius: 12px;
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+        .login-logo-text {
+            font-size: 25px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .login-title {
+            margin: 0 0 8px;
+            font-size: 28px;
+            line-height: 1.2;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .login-description {
+            max-width: 320px;
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /*
+        ========================================
+        LOGIN CARD
+        ========================================
+        */
+
+        .login-card {
+            padding: 28px;
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .google-login-button {
+            width: 100%;
+            min-height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 0 18px;
+
+            background: #ffffff;
+            color: var(--text);
+
+            border: 1px solid var(--border);
+            border-radius: 10px;
+
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .google-login-button:hover {
+            background: var(--surface);
+            border-color: #d1d5db;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .google-login-button:active {
+            transform: scale(0.99);
+        }
+
+        .google-login-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        /*
+        ========================================
+        LOGIN NOTE
+        ========================================
+        */
+
+        .login-note {
+            margin-top: 18px;
+            padding: 12px 14px;
+
+            background: var(--primary-light);
+            border-radius: 10px;
+
+            color: var(--text-secondary);
+            font-size: 12px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        /*
+        ========================================
+        TERMS
+        ========================================
+        */
+
+        .login-terms {
+            margin: 20px 4px 0;
+            color: var(--text-secondary);
+            font-size: 12px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .login-terms a {
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .login-terms a:hover {
+            text-decoration: underline;
+        }
+
+        /*
+        ========================================
+        BACK LINK
+        ========================================
+        */
+
+        .login-back {
+            display: flex;
+            justify-content: center;
+            margin-top: 22px;
+        }
+
+        .login-back a {
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .login-back a:hover {
+            color: var(--primary);
+        }
+
+        /*
+        ========================================
+        FOOTER
+        ========================================
+        */
+
+        .login-footer {
+            margin-top: 28px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 12px;
+        }
+
+        /*
+        ========================================
+        RESPONSIVE
+        ========================================
+        */
+
+        @media (max-width: 480px) {
+            .login-page {
+                padding: 20px 14px;
+            }
+
+            .login-card {
+                padding: 22px 18px;
+                border-radius: 16px;
+            }
+
+            .login-title {
+                font-size: 25px;
+            }
+
+            .login-description {
+                font-size: 14px;
+            }
+
+            .login-logo-mark {
+                width: 40px;
+                height: 40px;
+                font-size: 22px;
+            }
+
+            .login-logo-text {
+                font-size: 23px;
+            }
+        }/* ========================================
+   LOGIN METHODS
+   ======================================== */
+   .login-method {
+    background: red !important;
+    color: white !important;
+    min-height: 60px !important;
+}
+
+.login-method-title {
+    color: red !important;
+    font-size: 20px !important;
+}
+
+.login-method-title {
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.login-method {
+    width: 100%;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 0 18px;
+
+    background: #ffffff;
+    color: var(--text);
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.login-method:hover {
+    background: var(--surface);
+    border-color: #d1d5db;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.login-method:active {
+    transform: scale(0.99);
+}
+
+.login-method-icon {
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.login-method-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.facebook-icon {
+    width: 22px;
+    height: 22px;
+
+    border-radius: 50%;
+
+    background: #1877F2;
+    color: #ffffff;
+
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.login-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.login-divider::before,
+.login-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.login-form-group {
+    margin-bottom: 14px;
+}
+
+.login-form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.login-input {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 14px;
+
+    box-sizing: border-box;
+
+    background: var(--background);
+    color: var(--text);
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    outline: none;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.login-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 177, 79, 0.10);
+}
+
+.email-login-button {
+    width: 100%;
+    min-height: 50px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: var(--primary);
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.email-login-button:hover {
+    background: var(--primary-dark);
+}
+
+.email-login-button:active {
+    transform: scale(0.99);
+}
+
+.login-phone-option {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.phone-login-link {
+    padding: 0;
+    border: none;
+    background: transparent;
+
+    color: var(--primary-dark);
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.phone-login-link:hover {
+    text-decoration: underline;
+}
+
+.login-register {
+    margin-top: 22px;
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+
+    text-align: center;
+
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.login-register a {
+    color: var(--primary-dark);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.login-register a:hover {
+    text-decoration: underline;
+}
+    </style>
+</head>
+
+<body>
+
+    <main class="login-page">
+
+        <div class="login-container">
+
+            <!-- BRAND -->
+            <div class="login-brand">
+
+                <a
+                    href="../index.html"
+                    class="login-logo"
+                    aria-label="Comicora Home"
+                >
+                    <span class="login-logo-mark">
+                        C
+                    </span>
+
+                    <span class="login-logo-text">
+                        COMICORA
+                    </span>
+                </a>
+
+                <h1 class="login-title">
+                    Masuk ke Comicora
+                </h1>
+
+                <p class="login-description">
+                    Simpan komik favorit dan lanjutkan bacaanmu
+                    kapan saja.
+                </p>
+
+            </div>
+
+            <!-- LOGIN CARD -->
+           <section class="login-card">
+
+    <div class="login-method-title">
+        Pilih cara masuk
+    </div>
+
+    <!-- GOOGLE -->
+    <button
+        type="button"
+        class="login-method login-google"
+        id="google-login-button"
+    >
+        <span class="login-method-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                    fill="#4285F4"
+                    d="M21.35 12.27c0-.68-.06-1.35-.17-1.98H12v3.75h5.22a4.46 4.46 0 0 1-1.94 2.92v2.42h3.14c1.84-1.69 2.93-4.18 2.93-7.11Z"
+                />
+                <path
+                    fill="#34A853"
+                    d="M12 21.6c2.63 0 4.84-.87 6.45-2.36l-3.14-2.42c-.87.58-1.98.92-3.31.92-2.54 0-4.69-1.72-5.46-4.03H3.3v2.5A9.74 9.74 0 0 0 12 21.6Z"
+                />
+                <path
+                    fill="#FBBC05"
+                    d="M6.54 13.71a5.86 5.86 0 0 1 0-3.42V7.79H3.3a9.6 9.6 0 0 0 0 8.42l3.24-2.5Z"
+                />
+                <path
+                    fill="#EA4335"
+                    d="M12 6.26c1.43 0 2.72.49 3.73 1.45l2.8-2.8C16.84 3.36 14.63 2.4 12 2.4a9.74 9.74 0 0 0-8.7 5.39l3.24 2.5 3.24 2.5C7.31 7.98 9.46 6.26 12 6.26Z"
+                />
+            </svg>
+        </span>
+
+        <span>Masuk dengan Google</span>
+    </button>
+
+    <!-- FACEBOOK -->
+    <button
+        type="button"
+        class="login-method login-facebook"
+        id="facebook-login-button"
+    >
+        <span class="login-method-icon facebook-icon">
+            f
+        </span>
+
+        <span>Masuk dengan Facebook</span>
+    </button>
+
+    <div class="login-divider">
+        <span>atau</span>
+    </div>
+
+    <!-- EMAIL -->
+    <div class="login-form-group">
+        <label for="login-email">
+            Email
+        </label>
+
+        <input
+            type="email"
+            id="login-email"
+            class="login-input"
+            placeholder="nama@email.com"
+            autocomplete="email"
+        >
+    </div>
+
+    <div class="login-form-group">
+        <label for="login-password">
+            Password
+        </label>
+
+        <input
+            type="password"
+            id="login-password"
+            class="login-input"
+            placeholder="Masukkan password"
+            autocomplete="current-password"
+        >
+    </div>
+
+    <button
+        type="button"
+        class="email-login-button"
+        id="email-login-button"
+    >
+        Masuk dengan Email
+    </button>
+
+    <div class="login-phone-option">
+        <button
+            type="button"
+            id="phone-login-button"
+            class="phone-login-link"
+        >
+            📱 Masuk dengan nomor HP
+        </button>
+    </div>
+
+    <div class="login-register">
+        Belum punya akun?
+        <a href="register.html">
+            Daftar sekarang
+        </a>
+    </div>
+
+    <div class="login-note">
+        Akun Comicora digunakan untuk menyimpan
+        bookmark dan riwayat bacaanmu di berbagai perangkat.
+    </div>
+
+    <p class="login-terms">
+        Dengan melanjutkan, kamu menyetujui
+        <a href="terms.html">Terms of Service</a>
+        dan
+        <a href="privacy.html">Privacy Policy</a>
+        Comicora.
+    </p>
+
+</section>
+
+            <!-- BACK -->
+            <div class="login-back">
+                <a href="../index.html">
+                    ← Kembali ke Comicora
+                </a>
+            </div>
+
+            <!-- COPYRIGHT -->
+            <div class="login-footer">
+                © <span id="current-year"></span> Comicora.
+                All rights reserved.
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- GLOBAL JS -->
+    <script src="../js/app.js"></script>
+    <script src="../js/pwa.js"></script>
+
+    <!-- LOGIN JS -->
+    <script src="../js/login.js"></script>
+
+</body>
+</html>

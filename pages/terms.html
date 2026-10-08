@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#00B14F"
+    >
+
+    <meta
+        name="description"
+        content="Syarat dan ketentuan penggunaan platform Comicora."
+    >
+
+    <title>Terms of Service - Comicora</title>
+
+    <link
+        rel="manifest"
+        href="../manifest.json"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../assets/images/logo/favicon.png"
+    >
+
+    <!-- Google Font -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="../css/reset.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/variables.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/header.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/footer.css"
+    >
+
+    <style>
+        /*
+        ========================================
+        TERMS PAGE
+        ========================================
+        */
+
+        .legal-page {
+            padding: 48px 0 90px;
+        }
+
+        .legal-header {
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .legal-label {
+            display: inline-flex;
+            align-items: center;
+
+            padding: 6px 12px;
+            margin-bottom: 14px;
+
+            background: var(--primary-light);
+            color: var(--primary-dark);
+
+            border-radius: 999px;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .legal-title {
+            margin: 0 0 12px;
+
+            color: var(--text);
+
+            font-size: 34px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .legal-updated {
+            margin: 0;
+
+            color: var(--text-secondary);
+
+            font-size: 13px;
+        }
+
+        /*
+        ========================================
+        CONTENT
+        ========================================
+        */
+
+        .legal-layout {
+            display: grid;
+            grid-template-columns: 220px minmax(0, 760px);
+            gap: 40px;
+
+            max-width: 1020px;
+            margin: 0 auto;
+        }
+
+        .legal-sidebar {
+            position: sticky;
+            top: 100px;
+
+            align-self: start;
+
+            padding: 18px;
+
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .legal-sidebar-title {
+            margin: 0 0 12px;
+
+            color: var(--text);
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .legal-sidebar a {
+            display: block;
+
+            padding: 7px 0;
+
+            color: var(--text-secondary);
+
+            font-size: 13px;
+            text-decoration: none;
+
+            transition: color 0.2s ease;
+        }
+
+        .legal-sidebar a:hover {
+            color: var(--primary);
+        }
+
+        .legal-content {
+            min-width: 0;
+        }
+
+        .legal-section {
+            padding-bottom: 32px;
+            margin-bottom: 32px;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .legal-section:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+
+            border-bottom: 0;
+        }
+
+        .legal-section h2 {
+            margin: 0 0 12px;
+
+            color: var(--text);
+
+            font-size: 21px;
+            line-height: 1.4;
+            font-weight: 700;
+        }
+
+        .legal-section h3 {
+            margin: 20px 0 8px;
+
+            color: var(--text);
+
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .legal-section p {
+            margin: 0 0 12px;
+
+            color: var(--text-secondary);
+
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .legal-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .legal-section ul,
+        .legal-section ol {
+            margin: 10px 0 0;
+            padding-left: 22px;
+        }
+
+        .legal-section li {
+            margin-bottom: 8px;
+
+            color: var(--text-secondary);
+
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .legal-section strong {
+            color: var(--text);
+        }
+
+        .legal-note {
+            padding: 16px 18px;
+
+            background: var(--primary-light);
+
+            border-radius: 10px;
+
+            color: var(--text-secondary);
+
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /*
+        ========================================
+        RESPONSIVE
+        ========================================
+        */
+
+        @media (max-width: 900px) {
+            .legal-layout {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .legal-sidebar {
+                position: static;
+            }
+
+            .legal-sidebar-links {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2px 16px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .legal-page {
+                padding: 32px 0 100px;
+            }
+
+            .legal-header {
+                margin-bottom: 30px;
+            }
+
+            .legal-title {
+                font-size: 27px;
+            }
+
+            .legal-layout {
+                gap: 22px;
+            }
+
+            .legal-sidebar {
+                padding: 16px;
+            }
+
+            .legal-sidebar-links {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .legal-section h2 {
+                font-size: 19px;
+            }
+
+            .legal-section p,
+            .legal-section li {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .legal-sidebar-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+
+        <div class="container header-inner">
+
+            <a
+                href="../index.html"
+                class="logo"
+                aria-label="Comicora Home"
+            >
+                <span class="logo-mark">
+                    C
+                </span>
+
+                <span class="logo-text">
+                    COMICORA
+                </span>
+            </a>
+
+            <nav class="desktop-nav">
+
+                <a href="../index.html">
+                    Home
+                </a>
+
+                <a href="discover.html">
+                    Discover
+                </a>
+
+                <a href="bookmark.html">
+                    Bookmark
+                </a>
+
+                <a href="history.html">
+                    History
+                </a>
+
+            </nav>
+
+            <div class="header-actions">
+
+                <a
+                    href="search.html"
+                    class="header-search"
+                    aria-label="Cari"
+                >
+                    🔍
+                </a>
+
+                <a
+                    href="profile.html"
+                    class="header-profile"
+                >
+                    Masuk
+                </a>
+
+                <button
+                    type="button"
+                    class="menu-toggle"
+                    aria-label="Buka menu"
+                    aria-expanded="false"
+                >
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- MOBILE MENU -->
+        <div class="mobile-menu">
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="discover.html">
+                Discover
+            </a>
+
+            <a href="bookmark.html">
+                Bookmark
+            </a>
+
+            <a href="history.html">
+                History
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main>
+
+        <section class="legal-page">
+
+            <div class="container">
+
+                <!-- HEADER -->
+                <div class="legal-header">
+
+                    <span class="legal-label">
+                        Legal
+                    </span>
+
+                    <h1 class="legal-title">
+                        Terms of Service
+                    </h1>
+
+                    <p class="legal-updated">
+                        Terakhir diperbarui:
+                        2 Oktober 2026
+                    </p>
+
+                </div>
+
+
+                <!-- LAYOUT -->
+                <div class="legal-layout">
+
+                    <!-- SIDEBAR -->
+                    <aside class="legal-sidebar">
+
+                        <h2 class="legal-sidebar-title">
+                            Daftar Isi
+                        </h2>
+
+                        <div class="legal-sidebar-links">
+
+                            <a href="#acceptance">
+                                Penerimaan
+                            </a>
+
+                            <a href="#account">
+                                Akun
+                            </a>
+
+                            <a href="#content">
+                                Konten
+                            </a>
+
+                            <a href="#acceptable-use">
+                                Penggunaan
+                            </a>
+
+                            <a href="#availability">
+                                Ketersediaan
+                            </a>
+
+                            <a href="#ads">
+                                Iklan
+                            </a>
+
+                            <a href="#copyright">
+                                Hak Cipta
+                            </a>
+
+                            <a href="#termination">
+                                Penghentian
+                            </a>
+
+                            <a href="#changes">
+                                Perubahan
+                            </a>
+
+                            <a href="#contact">
+                                Kontak
+                            </a>
+
+                        </div>
+
+                    </aside>
+
+
+                    <!-- CONTENT -->
+                    <article class="legal-content">
+
+                        <section
+                            class="legal-section"
+                            id="introduction"
+                        >
+
+                            <p>
+                                Selamat datang di Comicora.
+                                Ketentuan Layanan ini mengatur
+                                penggunaan platform Comicora,
+                                termasuk website, fitur PWA,
+                                akun pengguna, katalog, dan fitur
+                                membaca komik.
+                            </p>
+
+                            <div class="legal-note">
+                                Dengan mengakses atau menggunakan
+                                Comicora, kamu dianggap telah membaca
+                                dan memahami ketentuan ini.
+                            </div>
+
+                        </section>
+
+
+                        <section
+                            class="legal-section"
+                            id="acceptance"
+                        >
+
+                            <h2>
+                                1. Penerimaan Ketentuan
+                            </h2>
+
+                            <p>
+                                Dengan menggunakan Comicora, kamu
+                                menyetujui Terms of Service ini serta
+                                kebijakan lain yang berlaku di platform,
+                                termasuk Privacy Policy.
+                            </p>
+
+                            <p>
+                                Jika kamu tidak menyetujui ketentuan
+                                tersebut, harap tidak menggunakan
+                                layanan Comicora.
+                            </p>
+
+                        </section>
+
+
+                        <section
+                            class="legal-section"
+                            id="account"
+                        >
+
+                            <h2>
+                                2. Akun Pengguna
+                            </h2>
+
+                            <p>
+                                Beberapa fitur Comicora dapat
+                                memerlukan akun pengguna.
+                            </p>
+
+                            <h3>
+                                Login
+                            </h3>
+
+                            <p>
+                                Pada versi awal, Comicora menggunakan
+                                Google Login sebagai metode autentikasi.
+                            </p>
+
+                            <h3>
+                                Informasi Akun
+                            </h3>
+
+                            <p>
+                                Pengguna bertanggung jawab untuk
+                                memastikan informasi akun yang
+                                diberikan melalui layanan autentikasi
+                                tetap benar.
+                            </p>
+
+                            <h3>
+                                Keamanan
+                            </h3>
+
+                            <p>
+                                Jangan membagikan akses akun kepada
+                                pihak lain. Jika terdapat aktivitas
+                                yang tidak dikenali pada akun,
+                                pengguna dapat menghubungi Comicora.
+                            </p>
+
+                        </section>
+
+
+                        <section
+                            class="legal-section"
+                            id="content"
+                        >
+
+                            <h2>
+                                3. Konten Comicora
+                            </h2>
+
+                            <p>
+                                Comicora menyediakan katalog dan
+                                konten komik yang tersedia melalui
+                                platform.
+                            </p>
+
+                            <p>
+                                Ketersediaan, judul, chapter, metadata,
+                                dan status sebuah komik dapat berubah
+                                sewaktu-waktu.
+                            </p>
+
+                            <p>
+                                Pengguna tidak diperbolehkan menyalin,
+                                mendistribusikan ulang, menjual,
+                                mengunggah ulang, atau menggunakan
+                                konten Comicora dengan cara yang
+                                melanggar hak pemilik konten atau
+                                hukum yang berlaku.
+                            </p>
+
+                        </section>
+
+
+                        <section
+                            class="legal-section"
+                            id="acceptable-use"
+                        >
+
+                            <h2>
+                                4. Penggunaan yang Diperbolehkan
+                            </h2>
+
+                            <p>
+                                Comicora ditujukan untuk penggunaan
+                                pribadi dan akses terhadap layanan
+                                yang disediakan platform.
+                            </p>
+
+                            <p>
+                                Pengguna tidak diperbolehkan:
+                            </p>
+
+                            <ul>
+
+                                <li>
+                                    Menggunakan platform untuk
+                                    aktivitas yang melanggar hukum.
+                                </li>
+
+                                <li>
+                                    Mencoba mendapatkan akses tanpa
+                                    izin ke sistem atau akun pengguna
+                                    lain.
+                                </li>
+
+                                <li>
+                                    Mengganggu atau mencoba merusak
+                                    sistem Comicora.
+                                </li>
+
+                                <li>
+                                    Menggunakan automated tools,
+                                    scraping, atau metode lain dengan
+                                    cara yang membebani atau mengganggu
+                                    layanan tanpa izin.
+                                </li>
+
+                                <li>
+                                    Menyalahgunakan fitur komunikasi
+                                    atau mengirimkan pesan yang
+                                    melanggar hukum.
+                                </li>
+
+                            </ul>
+
+                        </section>
+
+
+                        <section
+                            class="legal-section"
+                            id="availability"
+                        >
+
+                            <h2>
+                                5. Ketersediaan Layanan
+                            </h2>
+
+                            <p>
+                                Comicora berupaya menjaga layanan agar
+                                dapat diakses dengan baik. Namun,
+                                layanan dapat mengalami gangguan,
+                                pemeliharaan, pembaruan, atau
+                                penghentian sementara.
+                            </p>
+
+                            <p>
+                                Kami tidak menjamin bahwa platform
+                                akan selalu tersedia tanpa gangguan
+                                atau bebas dari kesalahan.
+                            </p>
+
+                        </section>
+
+
+                        <section
+                            class="legal-section"
+                            id="ads"
+                        >
+
+                            <h2>
+                                6. Iklan
+                            </h2>
+
+                            <p>
+                                Comicora dapat menampilkan iklan
+                                sebagai bagian dari model pendanaan
+                                platform.
+                            </p>
+
+                            <p>
+                                Iklan dapat berasal dari penyedia
+                                iklan pihak ketiga. Interaksi pengguna
+                                dengan iklan pihak ketiga dapat tunduk
+                                pada ketentuan dan kebijakan penyedia
+                                tersebut.
+                            </p>
+
+                        </section>
+
+
+                        <section
+                            class="legal-section"
+                            id="copyright"
+                        >
+
+                            <h2>
+                                7. Hak Cipta dan Kekayaan Intelektual
+                            </h2>
+
+                            <p>
+                                Nama, identitas visual, desain,
+                                software, dan elemen lain yang
+                                merupakan bagian dari Comicora dapat
+                                dilindungi oleh hak kekayaan intelektual
+                                yang berlaku.
+                            </p>
+
+                            <p>
+                                Hak atas karya komik dan materi pihak
+                                ketiga tetap berada pada pemilik atau
+                                pemegang hak yang bersangkutan.
+                            </p>
+
+                            <p>
+                                Jika kamu memiliki klaim atau laporan
+                                terkait hak cipta suatu konten,
+                                silakan hubungi Comicora melalui
+                                halaman Contact.
+                            </p>
+
+                        </section>
+
+
+                        <section
+                            class="legal-section"
+                            id="termination"
+                        >
+
+                            <h2>
+                                8. Penghentian atau Pembatasan Akses
+                            </h2>
+
+                            <p>
+                                Comicora dapat membatasi atau
+                                menghentikan akses terhadap layanan
+                                apabila diperlukan untuk keamanan,
+                                pemeliharaan, kepatuhan terhadap hukum,
+                                atau apabila terjadi pelanggaran
+                                terhadap ketentuan ini.
+                            </p>
+
+                        </section>
+
+
+                        <section
+                            class="legal-section"
+                            id="changes"
+                        >
+
+                            <h2>
+                                9. Perubahan Ketentuan
+                            </h2>
+
+                            <p>
+                                Ketentuan ini dapat diperbarui dari
+                                waktu ke waktu untuk menyesuaikan
+                                perkembangan fitur, layanan, atau
+                                kebutuhan operasional Comicora.
+                            </p>
+
+                            <p>
+                                Versi terbaru akan dipublikasikan
+                                melalui halaman Terms of Service ini.
+                            </p>
+
+                        </section>
+
+
+                        <section
+                            class="legal-section"
+                            id="contact"
+                        >
+
+                            <h2>
+                                10. Hubungi Kami
+                            </h2>
+
+                            <p>
+                                Jika kamu memiliki pertanyaan mengenai
+                                Terms of Service ini, silakan hubungi
+                                Comicora melalui halaman Contact.
+                            </p>
+
+                            <p>
+                                <a href="contact.html">
+                                    Buka halaman Contact →
+                                </a>
+                            </p>
+
+                        </section>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div class="footer-brand">
+
+                    <a
+                        href="../index.html"
+                        class="footer-logo"
+                    >
+                        COMICORA
+                    </a>
+
+                    <p>
+                        Platform baca webcomic untuk pembaca Indonesia.
+                    </p>
+
+                    <div class="footer-socials">
+
+                        <a
+                            href="#"
+                            aria-label="Instagram"
+                        >
+                            IG
+                        </a>
+
+                        <a
+                            href="#"
+                            aria-label="TikTok"
+                        >
+                            TK
+                        </a>
+
+                        <a
+                            href="#"
+                            aria-label="X"
+                        >
+                            X
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        Explore
+                    </h3>
+
+                    <a href="discover.html">
+                        Discover
+                    </a>
+
+                    <a href="search.html">
+                        Search
+                    </a>
+
+                    <a href="bookmark.html">
+                        Bookmark
+                    </a>
+
+                    <a href="history.html">
+                        History
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        Information
+                    </h3>
+
+                    <a href="about.html">
+                        About Us
+                    </a>
+
+                    <a href="faq.html">
+                        FAQ
+                    </a>
+
+                    <a href="contact.html">
+                        Contact
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        Legal
+                    </h3>
+
+                    <a href="terms.html">
+                        Terms of Service
+                    </a>
+
+                    <a href="privacy.html">
+                        Privacy Policy
+                    </a>
+
+                    <a href="#">
+                        Ad Policy
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © <span id="current-year"></span>
+                    Comicora. All rights reserved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- MOBILE BOTTOM NAV -->
+    <nav class="mobile-bottom-nav">
+
+        <a href="../index.html">
+            <span>⌂</span>
+            <small>Home</small>
+        </a>
+
+        <a href="discover.html">
+            <span>◈</span>
+            <small>Discover</small>
+        </a>
+
+        <a href="bookmark.html">
+            <span>♡</span>
+            <small>Bookmark</small>
+        </a>
+
+        <a href="history.html">
+            <span>◷</span>
+            <small>History</small>
+        </a>
+
+        <a href="profile.html">
+            <span>○</span>
+            <small>Me</small>
+        </a>
+
+    </nav>
+
+
+    <!-- JS -->
+    <script src="../js/app.js"></script>
+    <script src="../js/pwa.js"></script>
+
+</body>
+</html>

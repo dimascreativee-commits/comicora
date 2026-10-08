@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#00B14F"
+    >
+
+    <meta
+        name="description"
+        content="Kebijakan Privasi Comicora."
+    >
+
+    <title>Kebijakan Privasi - Comicora</title>
+
+    <link
+        rel="manifest"
+        href="../manifest.json"
+    >
+
+    <link
+        rel="icon"
+        href="../assets/images/logo/favicon.png"
+        type="image/png"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/reset.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/variables.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/header.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/footer.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css"
+    >
+
+    <style>
+        .legal-page {
+            padding: 50px 0 80px;
+        }
+
+        .legal-layout {
+            display: grid;
+            grid-template-columns: 240px minmax(0, 1fr);
+            gap: 48px;
+            align-items: start;
+        }
+
+        .legal-sidebar {
+            position: sticky;
+            top: 100px;
+            padding: 22px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .legal-sidebar-title {
+            margin-bottom: 16px;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .legal-sidebar a {
+            display: block;
+            padding: 8px 0;
+            color: var(--text-secondary);
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .legal-sidebar a:hover {
+            color: var(--primary);
+        }
+
+        .legal-content {
+            max-width: 820px;
+        }
+
+        .legal-header {
+            margin-bottom: 36px;
+        }
+
+        .legal-label {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .legal-header h1 {
+            margin-bottom: 12px;
+            font-size: 34px;
+            line-height: 1.2;
+        }
+
+        .legal-updated {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .legal-section {
+            margin-bottom: 34px;
+            scroll-margin-top: 100px;
+        }
+
+        .legal-section h2 {
+            margin-bottom: 12px;
+            font-size: 22px;
+            line-height: 1.3;
+        }
+
+        .legal-section p {
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .legal-section ul {
+            margin: 12px 0 16px 20px;
+        }
+
+        .legal-section li {
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .legal-highlight {
+            margin: 20px 0;
+            padding: 18px 20px;
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            border-radius: 10px;
+        }
+
+        .legal-highlight p {
+            margin: 0;
+            color: var(--text);
+        }
+
+        .legal-contact {
+            margin-top: 24px;
+            padding: 24px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .legal-contact h3 {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .legal-contact p {
+            margin: 0;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        @media (max-width: 900px) {
+            .legal-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .legal-sidebar {
+                position: static;
+            }
+
+            .legal-sidebar nav {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 4px 20px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .legal-page {
+                padding: 32px 0 70px;
+            }
+
+            .legal-header h1 {
+                font-size: 28px;
+            }
+
+            .legal-section h2 {
+                font-size: 20px;
+            }
+
+            .legal-section p,
+            .legal-section li {
+                font-size: 14px;
+            }
+
+            .legal-sidebar nav {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container header-inner">
+
+            <button
+                class="hamburger"
+                type="button"
+                aria-label="Buka menu"
+                aria-expanded="false"
+                data-menu-toggle
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <a
+                href="../index.html"
+                class="site-logo"
+                aria-label="Comicora Home"
+            >
+                <span class="logo-mark">C</span>
+                <span>COMICORA</span>
+            </a>
+
+            <nav class="desktop-nav">
+                <a href="../index.html">Home</a>
+                <a href="discover.html">Discover</a>
+                <a href="bookmark.html">Bookmark</a>
+                <a href="history.html">History</a>
+            </nav>
+
+            <div class="header-actions">
+
+                <a
+                    href="search.html"
+                    class="header-icon"
+                    aria-label="Cari"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="21"
+                        height="21"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <circle
+                            cx="11"
+                            cy="11"
+                            r="7"
+                        ></circle>
+                        <path
+                            d="m20 20-4-4"
+                        ></path>
+                    </svg>
+                </a>
+
+                <a
+                    href="profile.html"
+                    class="header-profile"
+                >
+                    <span class="profile-icon">
+                        <svg
+                            viewBox="0 0 24 24"
+                            width="19"
+                            height="19"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <circle
+                                cx="12"
+                                cy="8"
+                                r="4"
+                            ></circle>
+                            <path
+                                d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"
+                            ></path>
+                        </svg>
+                    </span>
+
+                    <span>Masuk</span>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- MOBILE MENU -->
+        <div
+            class="mobile-menu"
+            data-mobile-menu
+        >
+            <a href="../index.html">Home</a>
+            <a href="discover.html">Discover</a>
+            <a href="bookmark.html">Bookmark</a>
+            <a href="history.html">History</a>
+            <a href="profile.html">Profile</a>
+        </div>
+    </header>
+
+
+    <!-- MAIN -->
+    <main>
+
+        <section class="legal-page">
+            <div class="container">
+
+                <div class="legal-layout">
+
+                    <!-- SIDEBAR -->
+                    <aside class="legal-sidebar">
+
+                        <div class="legal-sidebar-title">
+                            Kebijakan Privasi
+                        </div>
+
+                        <nav>
+                            <a href="#informasi">
+                                Informasi yang Dikumpulkan
+                            </a>
+
+                            <a href="#penggunaan">
+                                Penggunaan Informasi
+                            </a>
+
+                            <a href="#google">
+                                Google Login
+                            </a>
+
+                            <a href="#penyimpanan">
+                                Penyimpanan Data
+                            </a>
+
+                            <a href="#cookies">
+                                Cookies & Teknologi
+                            </a>
+
+                            <a href="#iklan">
+                                Iklan
+                            </a>
+
+                            <a href="#pihak-ketiga">
+                                Pihak Ketiga
+                            </a>
+
+                            <a href="#keamanan">
+                                Keamanan
+                            </a>
+
+                            <a href="#hak">
+                                Hak Pengguna
+                            </a>
+
+                            <a href="#perubahan">
+                                Perubahan Kebijakan
+                            </a>
+                        </nav>
+
+                    </aside>
+
+
+                    <!-- CONTENT -->
+                    <article class="legal-content">
+
+                        <div class="legal-header">
+
+                            <span class="legal-label">
+                                Legal
+                            </span>
+
+                            <h1>
+                                Kebijakan Privasi
+                            </h1>
+
+                            <p class="legal-updated">
+                                Terakhir diperbarui: 2 Oktober 2026
+                            </p>
+
+                        </div>
+
+
+                        <!-- 1 -->
+                        <section
+                            class="legal-section"
+                            id="informasi"
+                        >
+                            <h2>
+                                1. Informasi yang Kami Kumpulkan
+                            </h2>
+
+                            <p>
+                                Comicora dapat mengumpulkan informasi tertentu
+                                ketika pengguna menggunakan layanan kami.
+                                Informasi yang dikumpulkan disesuaikan dengan
+                                fitur yang digunakan oleh pengguna.
+                            </p>
+
+                            <p>
+                                Untuk akun pengguna, informasi yang dapat
+                                diproses antara lain:
+                            </p>
+
+                            <ul>
+                                <li>Nama pengguna.</li>
+                                <li>Alamat email.</li>
+                                <li>Foto profil.</li>
+                                <li>Identitas akun Google yang digunakan untuk login.</li>
+                                <li>Data aktivitas seperti bookmark dan riwayat membaca.</li>
+                            </ul>
+
+                            <p>
+                                Comicora juga dapat menerima informasi teknis
+                                seperti jenis perangkat, browser, sistem operasi,
+                                dan informasi teknis lainnya yang diperlukan
+                                untuk menjalankan layanan.
+                            </p>
+                        </section>
+
+
+                        <!-- 2 -->
+                        <section
+                            class="legal-section"
+                            id="penggunaan"
+                        >
+                            <h2>
+                                2. Bagaimana Informasi Digunakan
+                            </h2>
+
+                            <p>
+                                Informasi yang dikumpulkan dapat digunakan untuk
+                                menyediakan, menjalankan, memelihara, dan
+                                meningkatkan layanan Comicora.
+                            </p>
+
+                            <ul>
+                                <li>
+                                    Membuat dan mengelola akun pengguna.
+                                </li>
+
+                                <li>
+                                    Menyimpan bookmark komik.
+                                </li>
+
+                                <li>
+                                    Menyimpan riwayat dan progres membaca.
+                                </li>
+
+                                <li>
+                                    Menampilkan konten yang relevan.
+                                </li>
+
+                                <li>
+                                    Menjaga keamanan dan mencegah penyalahgunaan layanan.
+                                </li>
+
+                                <li>
+                                    Menganalisis performa dan penggunaan layanan.
+                                </li>
+
+                                <li>
+                                    Menampilkan iklan apabila fitur iklan digunakan.
+                                </li>
+                            </ul>
+                        </section>
+
+
+                        <!-- 3 -->
+                        <section
+                            class="legal-section"
+                            id="google"
+                        >
+                            <h2>
+                                3. Google Login
+                            </h2>
+
+                            <p>
+                                Comicora menyediakan opsi login menggunakan akun
+                                Google. Ketika pengguna memilih metode tersebut,
+                                proses autentikasi dilakukan melalui layanan
+                                Google.
+                            </p>
+
+                            <p>
+                                Comicora hanya memproses informasi akun yang
+                                diperlukan untuk membuat dan mengelola akun
+                                Comicora, sesuai dengan informasi yang diberikan
+                                melalui proses autentikasi.
+                            </p>
+
+                            <div class="legal-highlight">
+                                <p>
+                                    Comicora tidak meminta atau menyimpan
+                                    password akun Google pengguna.
+                                </p>
+                            </div>
+                        </section>
+
+
+                        <!-- 4 -->
+                        <section
+                            class="legal-section"
+                            id="penyimpanan"
+                        >
+                            <h2>
+                                4. Penyimpanan Data
+                            </h2>
+
+                            <p>
+                                Data akun dan aktivitas pengguna dapat disimpan
+                                pada sistem yang digunakan untuk menjalankan
+                                Comicora.
+                            </p>
+
+                            <p>
+                                Beberapa data tertentu, seperti preferensi,
+                                bookmark, atau informasi sementara, dapat
+                                disimpan pada perangkat pengguna melalui
+                                teknologi seperti Local Storage apabila
+                                diperlukan oleh fitur layanan.
+                            </p>
+
+                            <p>
+                                Kami berupaya menyimpan data hanya selama
+                                diperlukan untuk tujuan layanan atau sesuai
+                                dengan kewajiban hukum yang berlaku.
+                            </p>
+                        </section>
+
+
+                        <!-- 5 -->
+                        <section
+                            class="legal-section"
+                            id="cookies"
+                        >
+                            <h2>
+                                5. Cookies dan Teknologi Serupa
+                            </h2>
+
+                            <p>
+                                Comicora dapat menggunakan cookies, Local Storage,
+                                dan teknologi serupa untuk membantu menjalankan
+                                fitur tertentu.
+                            </p>
+
+                            <p>
+                                Teknologi tersebut dapat digunakan untuk
+                                mempertahankan preferensi pengguna, membantu
+                                autentikasi, menyimpan aktivitas tertentu, serta
+                                meningkatkan pengalaman penggunaan layanan.
+                            </p>
+                        </section>
+
+
+                        <!-- 6 -->
+                        <section
+                            class="legal-section"
+                            id="iklan"
+                        >
+                            <h2>
+                                6. Iklan
+                            </h2>
+
+                            <p>
+                                Comicora dapat menampilkan iklan dari penyedia
+                                iklan pihak ketiga untuk mendukung operasional
+                                layanan.
+                            </p>
+
+                            <p>
+                                Penyedia iklan dapat menggunakan teknologi
+                                tertentu untuk menampilkan dan mengukur iklan
+                                sesuai dengan kebijakan serta ketentuan mereka
+                                sendiri.
+                            </p>
+
+                            <p>
+                                Apabila Comicora menggunakan layanan seperti
+                                Google AdSense atau Google Ad Manager, pemrosesan
+                                data oleh penyedia tersebut juga tunduk pada
+                                kebijakan privasi masing-masing penyedia.
+                            </p>
+                        </section>
+
+
+                        <!-- 7 -->
+                        <section
+                            class="legal-section"
+                            id="pihak-ketiga"
+                        >
+                            <h2>
+                                7. Layanan Pihak Ketiga
+                            </h2>
+
+                            <p>
+                                Comicora dapat menggunakan layanan pihak ketiga
+                                untuk mendukung operasional platform.
+                            </p>
+
+                            <p>
+                                Contohnya dapat mencakup layanan autentikasi,
+                                hosting, penyimpanan data, analitik, distribusi
+                                konten, dan penyedia iklan.
+                            </p>
+
+                            <p>
+                                Pihak ketiga tersebut dapat memproses data
+                                tertentu sesuai dengan fungsi layanan dan
+                                kebijakan privasi mereka masing-masing.
+                            </p>
+                        </section>
+
+
+                        <!-- 8 -->
+                        <section
+                            class="legal-section"
+                            id="keamanan"
+                        >
+                            <h2>
+                                8. Keamanan Data
+                            </h2>
+
+                            <p>
+                                Comicora berupaya menerapkan langkah-langkah
+                                teknis dan organisasi yang wajar untuk membantu
+                                melindungi informasi pengguna dari akses,
+                                perubahan, pengungkapan, atau penggunaan yang
+                                tidak sah.
+                            </p>
+
+                            <p>
+                                Namun, tidak ada sistem elektronik yang dapat
+                                menjamin keamanan secara mutlak. Karena itu,
+                                pengguna memahami bahwa penggunaan layanan
+                                internet selalu memiliki risiko tertentu.
+                            </p>
+                        </section>
+
+
+                        <!-- 9 -->
+                        <section
+                            class="legal-section"
+                            id="hak"
+                        >
+                            <h2>
+                                9. Hak Pengguna
+                            </h2>
+
+                            <p>
+                                Pengguna dapat menghubungi Comicora apabila
+                                memiliki pertanyaan mengenai informasi pribadi
+                                yang berkaitan dengan akun mereka.
+                            </p>
+
+                            <p>
+                                Bergantung pada sistem dan ketentuan yang berlaku,
+                                pengguna dapat meminta koreksi, pembaruan,
+                                atau penghapusan informasi tertentu yang
+                                berkaitan dengan akun mereka.
+                            </p>
+
+                            <p>
+                                Permintaan dapat memerlukan verifikasi untuk
+                                memastikan keamanan akun dan mencegah permintaan
+                                yang tidak sah.
+                            </p>
+                        </section>
+
+
+                        <!-- 10 -->
+                        <section
+                            class="legal-section"
+                            id="perubahan"
+                        >
+                            <h2>
+                                10. Perubahan Kebijakan Privasi
+                            </h2>
+
+                            <p>
+                                Comicora dapat memperbarui Kebijakan Privasi ini
+                                dari waktu ke waktu untuk mencerminkan perubahan
+                                pada layanan, teknologi, atau persyaratan hukum.
+                            </p>
+
+                            <p>
+                                Versi terbaru akan dipublikasikan pada halaman
+                                ini dan tanggal pembaruan akan disesuaikan.
+                            </p>
+                        </section>
+
+
+                        <!-- CONTACT -->
+                        <div class="legal-contact">
+
+                            <h3>
+                                Pertanyaan tentang privasi?
+                            </h3>
+
+                            <p>
+                                Jika kamu memiliki pertanyaan mengenai Kebijakan
+                                Privasi Comicora, silakan hubungi kami melalui
+                                halaman Contact.
+                            </p>
+
+                            <a
+                                href="contact.html"
+                                class="btn btn-primary"
+                                style="margin-top: 16px;"
+                            >
+                                Hubungi Comicora
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-main">
+
+                <div class="footer-brand">
+
+                    <a
+                        href="../index.html"
+                        class="footer-logo"
+                    >
+                        <span class="logo-mark">C</span>
+                        <span>COMICORA</span>
+                    </a>
+
+                    <p>
+                        Platform baca webcomic dan manhwa
+                        untuk pembaca Indonesia.
+                    </p>
+
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Instagram">IG</a>
+                        <a href="#" aria-label="TikTok">TK</a>
+                        <a href="#" aria-label="X">X</a>
+                    </div>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        Explore
+                    </h3>
+
+                    <a href="discover.html">
+                        Discover
+                    </a>
+
+                    <a href="search.html">
+                        Search
+                    </a>
+
+                    <a href="bookmark.html">
+                        Bookmark
+                    </a>
+
+                    <a href="history.html">
+                        History
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        Information
+                    </h3>
+
+                    <a href="about.html">
+                        About Us
+                    </a>
+
+                    <a href="faq.html">
+                        FAQ
+                    </a>
+
+                    <a href="contact.html">
+                        Contact
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        Legal
+                    </h3>
+
+                    <a href="terms.html">
+                        Terms of Service
+                    </a>
+
+                    <a href="privacy.html">
+                        Privacy Policy
+                    </a>
+
+                    <a href="#">
+                        Ad Policy
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © <span data-current-year>2026</span>
+                    Comicora. All rights reserved.
+                </p>
+
+                <p>
+                    Made for comic readers.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- MOBILE BOTTOM NAV -->
+    <nav class="mobile-bottom-nav">
+
+        <a href="../index.html">
+            <span>⌂</span>
+            <small>Home</small>
+        </a>
+
+        <a href="discover.html">
+            <span>◈</span>
+            <small>Discover</small>
+        </a>
+
+        <a href="bookmark.html">
+            <span>♡</span>
+            <small>Bookmark</small>
+        </a>
+
+        <a href="history.html">
+            <span>◷</span>
+            <small>History</small>
+        </a>
+
+        <a href="profile.html">
+            <span>♙</span>
+            <small>Me</small>
+        </a>
+
+    </nav>
+
+
+    <script src="../js/app.js"></script>
+    <script src="../js/pwa.js"></script>
+
+</body>
+</html>

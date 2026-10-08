@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#00B14F"
+    >
+
+    <meta
+        name="description"
+        content="Profil pengguna Comicora."
+    >
+
+    <title>Profile - Comicora</title>
+
+    <link
+        rel="manifest"
+        href="../manifest.json"
+    >
+
+    <link
+        rel="icon"
+        href="../assets/images/logo/favicon.png"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/reset.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/variables.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/header.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/footer.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css"
+    >
+
+    <style>
+        .profile-page {
+            min-height: 70vh;
+            padding: 48px 0 80px;
+        }
+
+        .profile-header {
+            margin-bottom: 28px;
+        }
+
+        .profile-header h1 {
+            margin-bottom: 8px;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .profile-header p {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        .profile-layout {
+            display: grid;
+            grid-template-columns: 280px minmax(0, 1fr);
+            gap: 24px;
+            align-items: start;
+        }
+
+        .profile-card {
+            padding: 28px 22px;
+            text-align: center;
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+        }
+
+        .profile-avatar {
+            width: 88px;
+            height: 88px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            overflow: hidden;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50%;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            margin-bottom: 4px;
+            font-size: 19px;
+            font-weight: 700;
+        }
+
+        .profile-email {
+            color: var(--text-secondary);
+            font-size: 13px;
+            word-break: break-word;
+        }
+
+        .profile-login-status {
+            margin-top: 18px;
+            padding: 10px 12px;
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        .profile-login-status.is-logged-in {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+        }
+
+        .profile-sections {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .profile-section {
+            padding: 22px;
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+        }
+
+        .profile-section h2 {
+            margin-bottom: 16px;
+            font-size: 19px;
+        }
+
+        .profile-link-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 14px 4px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .profile-link:first-child {
+            padding-top: 4px;
+        }
+
+        .profile-link:last-child {
+            padding-bottom: 4px;
+            border-bottom: 0;
+        }
+
+        .profile-link:hover {
+            color: var(--primary);
+        }
+
+        .profile-link-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .profile-link-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 10px;
+            font-size: 17px;
+        }
+
+        .profile-link-title {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .profile-link-description {
+            margin-top: 2px;
+            color: var(--text-secondary);
+            font-size: 12px;
+        }
+
+        .profile-arrow {
+            color: var(--text-secondary);
+            font-size: 18px;
+        }
+
+        .logout-button {
+            width: 100%;
+            margin-top: 18px;
+            padding: 12px 16px;
+            border: 1px solid #fecaca;
+            background: #fff5f5;
+            color: var(--error);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .logout-button:hover {
+            background: #fee2e2;
+        }
+
+        .login-card {
+            padding: 28px;
+            text-align: center;
+            background: var(--primary-light);
+            border: 1px solid #c9efd9;
+            border-radius: var(--radius-lg);
+        }
+
+        .login-card h2 {
+            margin-bottom: 8px;
+            font-size: 21px;
+        }
+
+        .login-card p {
+            max-width: 520px;
+            margin: 0 auto 20px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .google-login-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-width: 210px;
+            padding: 12px 18px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            color: var(--text);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .google-login-button:hover {
+            border-color: var(--primary);
+        }
+
+        .google-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .login-notice {
+            margin-top: 14px;
+            color: var(--text-secondary);
+            font-size: 12px;
+        }
+
+        @media (max-width: 900px) {
+            .profile-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-card {
+                display: grid;
+                grid-template-columns: 88px minmax(0, 1fr);
+                gap: 14px 18px;
+                align-items: center;
+                text-align: left;
+            }
+
+            .profile-avatar {
+                grid-row: span 3;
+                margin: 0;
+            }
+
+            .profile-login-status {
+                margin-top: 0;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .profile-page {
+                padding: 28px 0 100px;
+            }
+
+            .profile-header h1 {
+                font-size: 26px;
+            }
+
+            .profile-card {
+                display: block;
+                text-align: center;
+            }
+
+            .profile-avatar {
+                margin: 0 auto 16px;
+            }
+
+            .profile-login-status {
+                margin-top: 18px;
+            }
+
+            .profile-section {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+
+        <div class="container header-inner">
+
+            <a
+                href="../index.html"
+                class="brand"
+                aria-label="Comicora Home"
+            >
+                <span class="brand-mark">
+                    C
+                </span>
+
+                <span class="brand-name">
+                    COMICORA
+                </span>
+            </a>
+
+            <nav
+                class="desktop-nav"
+                aria-label="Navigasi utama"
+            >
+                <a href="../index.html">
+                    Home
+                </a>
+
+                <a href="discover.html">
+                    Discover
+                </a>
+
+                <a href="bookmark.html">
+                    Bookmark
+                </a>
+
+                <a href="history.html">
+                    History
+                </a>
+            </nav>
+
+            <div class="header-actions">
+
+                <a
+                    href="search.html"
+                    class="header-icon-button"
+                    aria-label="Cari"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <circle
+                            cx="11"
+                            cy="11"
+                            r="7"
+                        ></circle>
+
+                        <path
+                            d="m20 20-4-4"
+                        ></path>
+                    </svg>
+                </a>
+
+                <a
+                    href="profile.html"
+                    class="header-profile"
+                >
+                    <span class="header-profile-icon">
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <circle
+                                cx="12"
+                                cy="8"
+                                r="4"
+                            ></circle>
+
+                            <path
+                                d="M4 21c0-4 3.5-7 8-7s8 3 8 7"
+                            ></path>
+                        </svg>
+                    </span>
+
+                    <span>
+                        Me
+                    </span>
+                </a>
+
+                <button
+                    class="hamburger-button"
+                    type="button"
+                    aria-label="Buka menu"
+                    aria-expanded="false"
+                    data-menu-toggle
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
+
+        </div>
+
+        <div
+            class="mobile-menu"
+            data-mobile-menu
+        >
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="discover.html">
+                Discover
+            </a>
+
+            <a href="bookmark.html">
+                Bookmark
+            </a>
+
+            <a href="history.html">
+                History
+            </a>
+
+            <a
+                href="profile.html"
+                class="active"
+            >
+                Profile
+            </a>
+        </div>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main>
+
+        <section class="profile-page">
+
+            <div class="container">
+
+                <div class="profile-header">
+
+                    <h1>
+                        Profile
+                    </h1>
+
+                    <p>
+                        Kelola akun dan aktivitas Comicora kamu.
+                    </p>
+
+                </div>
+
+
+                <div class="profile-layout">
+
+                    <!-- PROFILE CARD -->
+                    <aside class="profile-card">
+
+                        <div
+                            class="profile-avatar"
+                            id="profile-avatar"
+                        >
+                            C
+                        </div>
+
+                        <div>
+
+                            <div
+                                class="profile-name"
+                                id="profile-name"
+                            >
+                                Guest Reader
+                            </div>
+
+                            <div
+                                class="profile-email"
+                                id="profile-email"
+                            >
+                                Belum login
+                            </div>
+
+                        </div>
+
+                        <div
+                            class="profile-login-status"
+                            id="profile-login-status"
+                        >
+                            Belum login
+                        </div>
+
+                    </aside>
+
+
+                    <!-- CONTENT -->
+                    <div class="profile-sections">
+
+                        <!-- LOGIN -->
+                        <section
+                            class="login-card"
+                            id="login-card"
+                        >
+
+                            <h2>
+                                Login ke Comicora
+                            </h2>
+
+                            <p>
+                                Login dengan Google untuk menyimpan
+                                bookmark dan history kamu secara aman.
+                            </p>
+
+                            <button
+                                type="button"
+                                class="google-login-button"
+                                id="google-login-button"
+                            >
+                                <span class="google-icon">
+                                    G
+                                </span>
+
+                                Lanjut dengan Google
+                            </button>
+
+                            <div class="login-notice">
+                                Dengan login, kamu menyetujui
+                                Terms of Service dan Privacy Policy Comicora.
+                            </div>
+
+                        </section>
+
+
+                        <!-- ACCOUNT -->
+                        <section class="profile-section">
+
+                            <h2>
+                                Aktivitas Saya
+                            </h2>
+
+                            <div class="profile-link-list">
+
+                                <a
+                                    href="bookmark.html"
+                                    class="profile-link"
+                                >
+                                    <span class="profile-link-content">
+
+                                        <span class="profile-link-icon">
+                                            ♡
+                                        </span>
+
+                                        <span>
+                                            <span class="profile-link-title">
+                                                Bookmark
+                                            </span>
+
+                                            <span class="profile-link-description">
+                                                Komik yang kamu simpan.
+                                            </span>
+                                        </span>
+
+                                    </span>
+
+                                    <span class="profile-arrow">
+                                        →
+                                    </span>
+                                </a>
+
+
+                                <a
+                                    href="history.html"
+                                    class="profile-link"
+                                >
+                                    <span class="profile-link-content">
+
+                                        <span class="profile-link-icon">
+                                            ◷
+                                        </span>
+
+                                        <span>
+                                            <span class="profile-link-title">
+                                                History
+                                            </span>
+
+                                            <span class="profile-link-description">
+                                                Lanjutkan bacaan terakhir.
+                                            </span>
+                                        </span>
+
+                                    </span>
+
+                                    <span class="profile-arrow">
+                                        →
+                                    </span>
+                                </a>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- INFORMATION -->
+                        <section class="profile-section">
+
+                            <h2>
+                                Information
+                            </h2>
+
+                            <div class="profile-link-list">
+
+                                <a
+                                    href="about.html"
+                                    class="profile-link"
+                                >
+                                    <span class="profile-link-content">
+
+                                        <span class="profile-link-icon">
+                                            i
+                                        </span>
+
+                                        <span>
+                                            <span class="profile-link-title">
+                                                About Comicora
+                                            </span>
+
+                                            <span class="profile-link-description">
+                                                Tentang platform Comicora.
+                                            </span>
+                                        </span>
+
+                                    </span>
+
+                                    <span class="profile-arrow">
+                                        →
+                                    </span>
+                                </a>
+
+
+                                <a
+                                    href="faq.html"
+                                    class="profile-link"
+                                >
+                                    <span class="profile-link-content">
+
+                                        <span class="profile-link-icon">
+                                            ?
+                                        </span>
+
+                                        <span>
+                                            <span class="profile-link-title">
+                                                FAQ
+                                            </span>
+
+                                            <span class="profile-link-description">
+                                                Pertanyaan yang sering ditanyakan.
+                                            </span>
+                                        </span>
+
+                                    </span>
+
+                                    <span class="profile-arrow">
+                                        →
+                                    </span>
+                                </a>
+
+
+                                <a
+                                    href="contact.html"
+                                    class="profile-link"
+                                >
+                                    <span class="profile-link-content">
+
+                                        <span class="profile-link-icon">
+                                            @
+                                        </span>
+
+                                        <span>
+                                            <span class="profile-link-title">
+                                                Contact
+                                            </span>
+
+                                            <span class="profile-link-description">
+                                                Hubungi tim Comicora.
+                                            </span>
+                                        </span>
+
+                                    </span>
+
+                                    <span class="profile-arrow">
+                                        →
+                                    </span>
+                                </a>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- LEGAL -->
+                        <section class="profile-section">
+
+                            <h2>
+                                Legal
+                            </h2>
+
+                            <div class="profile-link-list">
+
+                                <a
+                                    href="terms.html"
+                                    class="profile-link"
+                                >
+                                    <span class="profile-link-content">
+
+                                        <span class="profile-link-icon">
+                                            §
+                                        </span>
+
+                                        <span>
+                                            <span class="profile-link-title">
+                                                Terms of Service
+                                            </span>
+
+                                            <span class="profile-link-description">
+                                                Ketentuan penggunaan Comicora.
+                                            </span>
+                                        </span>
+
+                                    </span>
+
+                                    <span class="profile-arrow">
+                                        →
+                                    </span>
+                                </a>
+
+
+                                <a
+                                    href="privacy.html"
+                                    class="profile-link"
+                                >
+                                    <span class="profile-link-content">
+
+                                        <span class="profile-link-icon">
+                                            🔒
+                                        </span>
+
+                                        <span>
+                                            <span class="profile-link-title">
+                                                Privacy Policy
+                                            </span>
+
+                                            <span class="profile-link-description">
+                                                Informasi tentang privasi pengguna.
+                                            </span>
+                                        </span>
+
+                                    </span>
+
+                                    <span class="profile-arrow">
+                                        →
+                                    </span>
+                                </a>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- LOGOUT -->
+                        <button
+                            type="button"
+                            class="logout-button"
+                            id="logout-button"
+                            hidden
+                        >
+                            Keluar dari akun
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-main">
+
+                <div class="footer-brand">
+
+                    <a
+                        href="../index.html"
+                        class="footer-logo"
+                    >
+                        <span class="brand-mark">
+                            C
+                        </span>
+
+                        <span>
+                            COMICORA
+                        </span>
+                    </a>
+
+                    <p>
+                        Platform baca webcomic dan manhwa
+                        untuk pembaca Indonesia.
+                    </p>
+
+                    <div class="footer-social">
+
+                        <a
+                            href="#"
+                            aria-label="Instagram"
+                        >
+                            IG
+                        </a>
+
+                        <a
+                            href="#"
+                            aria-label="TikTok"
+                        >
+                            TK
+                        </a>
+
+                        <a
+                            href="#"
+                            aria-label="X"
+                        >
+                            X
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        Explore
+                    </h3>
+
+                    <a href="discover.html">
+                        Discover
+                    </a>
+
+                    <a href="search.html">
+                        Search
+                    </a>
+
+                    <a href="bookmark.html">
+                        Bookmark
+                    </a>
+
+                    <a href="history.html">
+                        History
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        Information
+                    </h3>
+
+                    <a href="about.html">
+                        About Us
+                    </a>
+
+                    <a href="faq.html">
+                        FAQ
+                    </a>
+
+                    <a href="contact.html">
+                        Contact
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        Legal
+                    </h3>
+
+                    <a href="terms.html">
+                        Terms of Service
+                    </a>
+
+                    <a href="privacy.html">
+                        Privacy Policy
+                    </a>
+
+                    <a href="#">
+                        Ad Policy
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    ©
+                    <span data-current-year>
+                        2026
+                    </span>
+                    Comicora. All rights reserved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- MOBILE BOTTOM NAV -->
+    <nav
+        class="mobile-bottom-nav"
+        aria-label="Navigasi mobile"
+    >
+
+        <a href="../index.html">
+
+            <span class="bottom-nav-icon">
+                ⌂
+            </span>
+
+            <span>
+                Home
+            </span>
+
+        </a>
+
+
+        <a href="discover.html">
+
+            <span class="bottom-nav-icon">
+                ◈
+            </span>
+
+            <span>
+                Discover
+            </span>
+
+        </a>
+
+
+        <a href="bookmark.html">
+
+            <span class="bottom-nav-icon">
+                ♡
+            </span>
+
+            <span>
+                Bookmark
+            </span>
+
+        </a>
+
+
+        <a href="history.html">
+
+            <span class="bottom-nav-icon">
+                ◷
+            </span>
+
+            <span>
+                History
+            </span>
+
+        </a>
+
+
+        <a
+            href="profile.html"
+            class="active"
+        >
+
+            <span class="bottom-nav-icon">
+                ○
+            </span>
+
+            <span>
+                Me
+            </span>
+
+        </a>
+
+    </nav>
+
+
+    <script src="../js/app.js"></script>
+
+    <script src="../js/pwa.js"></script>
+
+    <script src="../js/profile.js"></script>
+
+</body>
+
+</html>

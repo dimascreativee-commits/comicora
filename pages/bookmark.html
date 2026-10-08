@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#00B14F"
+    >
+
+    <meta
+        name="description"
+        content="Daftar komik yang kamu simpan di Comicora."
+    >
+
+    <title>Bookmark - Comicora</title>
+
+    <link
+        rel="manifest"
+        href="../manifest.json"
+    >
+
+    <link
+        rel="icon"
+        href="../assets/images/logo/favicon.png"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/reset.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/variables.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/header.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/footer.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/cards.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css"
+    >
+
+    <style>
+        .library-page {
+            min-height: 70vh;
+            padding: 28px 0 80px;
+        }
+
+        .library-header {
+            margin-bottom: 28px;
+        }
+
+        .library-header h1 {
+            margin-bottom: 8px;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .library-header p {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        .library-count {
+            margin-top: 6px;
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .library-empty {
+            display: none;
+            padding: 60px 20px;
+            text-align: center;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+        }
+
+        .library-empty.is-visible {
+            display: block;
+        }
+
+        .library-empty-icon {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50%;
+            font-size: 28px;
+        }
+
+        .library-empty h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+
+        .library-empty p {
+            max-width: 440px;
+            margin: 0 auto 22px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .library-empty .btn {
+            display: inline-flex;
+        }
+
+        .library-grid {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 22px 16px;
+        }
+
+        @media (max-width: 1200px) {
+            .library-grid {
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .library-page {
+                padding-top: 36px;
+            }
+
+            .library-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 767px) {
+            .library-page {
+                padding: 28px 0 100px;
+            }
+
+            .library-header {
+                margin-bottom: 22px;
+            }
+
+            .library-header h1 {
+                font-size: 26px;
+            }
+
+            .library-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 22px 12px;
+            }
+
+            .library-empty {
+                padding: 48px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+
+        <div class="container header-container">
+
+            <!-- Mobile Menu Button -->
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Buka menu"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Logo -->
+            <a
+                href="../index.html"
+                class="comicora-logo"
+                aria-label="Comicora Home"
+            >
+                <span class="logo-mark">
+                    C
+                </span>
+
+                <span class="logo-text">
+                    COMICORA
+                </span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav
+                class="main-navigation"
+                aria-label="Navigasi utama"
+            >
+
+                <a
+                    href="../index.html"
+                    class="nav-link"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="discover.html"
+                    class="nav-link"
+                >
+                    Discover
+                </a>
+
+                <a
+                    href="bookmark.html"
+                    class="nav-link active"
+                >
+                    Bookmark
+                </a>
+
+                <a
+                    href="history.html"
+                    class="nav-link"
+                >
+                    History
+                </a>
+
+            </nav>
+
+            <!-- Header Actions -->
+            <div class="header-actions">
+
+                <!-- Search -->
+                <a
+                    href="search.html"
+                    class="header-icon-button"
+                    aria-label="Cari komik"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <circle
+                            cx="11"
+                            cy="11"
+                            r="7"
+                        ></circle>
+
+                        <line
+                            x1="16.5"
+                            y1="16.5"
+                            x2="21"
+                            y2="21"
+                        ></line>
+                    </svg>
+                </a>
+
+                <!-- Profile -->
+                <a
+                    href="profile.html"
+                    class="profile-button"
+                >
+                    <span class="profile-avatar">
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <circle
+                                cx="12"
+                                cy="8"
+                                r="4"
+                            ></circle>
+
+                            <path
+                                d="M4 21c0-4.2 3.6-7 8-7s8 2.8 8 7"
+                            ></path>
+                        </svg>
+                    </span>
+
+                    <span class="profile-label">
+                        Masuk
+                    </span>
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav
+            class="mobile-navigation"
+            id="mobileNavigation"
+            aria-label="Navigasi mobile"
+        >
+
+            <a
+                href="../index.html"
+                class="mobile-nav-link"
+            >
+                <span class="mobile-nav-icon">
+                    🏠
+                </span>
+
+                <span>
+                    Home
+                </span>
+            </a>
+
+            <a
+                href="discover.html"
+                class="mobile-nav-link"
+            >
+                <span class="mobile-nav-icon">
+                    🔎
+                </span>
+
+                <span>
+                    Discover
+                </span>
+            </a>
+
+            <a
+                href="bookmark.html"
+                class="mobile-nav-link active"
+            >
+                <span class="mobile-nav-icon">
+                    🔖
+                </span>
+
+                <span>
+                    Bookmark
+                </span>
+            </a>
+
+            <a
+                href="history.html"
+                class="mobile-nav-link"
+            >
+                <span class="mobile-nav-icon">
+                    🕘
+                </span>
+
+                <span>
+                    History
+                </span>
+            </a>
+
+            <a
+                href="profile.html"
+                class="mobile-nav-link"
+            >
+                <span class="mobile-nav-icon">
+                    👤
+                </span>
+
+                <span>
+                    Profile
+                </span>
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main>
+
+        <section class="library-page">
+
+            <div class="container">
+
+                <div class="library-header">
+
+                    <h1>
+                        My Library
+                    </h1>
+
+                    <p>
+                        Komik yang kamu simpan akan muncul di sini.
+                    </p>
+
+                    <div
+                        class="library-count"
+                        id="bookmark-count"
+                    >
+                        0 komik
+                    </div>
+
+                </div>
+
+
+                <!-- BOOKMARK GRID -->
+                <div
+                    class="library-grid"
+                    id="bookmark-comics"
+                ></div>
+
+
+                <!-- EMPTY STATE -->
+                <div
+                    class="library-empty"
+                    id="bookmark-empty"
+                >
+
+                    <div class="library-empty-icon">
+                        ♡
+                    </div>
+
+                    <h2>
+                        Belum ada bookmark
+                    </h2>
+
+                    <p>
+                        Simpan komik favoritmu supaya
+                        lebih mudah ditemukan dan dibaca
+                        lagi nanti.
+                    </p>
+
+                    <a
+                        href="discover.html"
+                        class="btn btn-primary"
+                    >
+                        Jelajahi Komik
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-main">
+
+                <div class="footer-brand">
+
+                    <a
+                        href="../index.html"
+                        class="footer-logo"
+                    >
+                        <span class="brand-mark">
+                            C
+                        </span>
+
+                        <span>
+                            COMICORA
+                        </span>
+                    </a>
+
+                    <p>
+                        Platform baca webcomic dan manhwa
+                        untuk pembaca Indonesia.
+                    </p>
+
+                    <div class="footer-social">
+
+                        <a
+                            href="#"
+                            aria-label="Instagram"
+                        >
+                            IG
+                        </a>
+
+                        <a
+                            href="#"
+                            aria-label="TikTok"
+                        >
+                            TK
+                        </a>
+
+                        <a
+                            href="#"
+                            aria-label="X"
+                        >
+                            X
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        Explore
+                    </h3>
+
+                    <a href="discover.html">
+                        Discover
+                    </a>
+
+                    <a href="search.html">
+                        Search
+                    </a>
+
+                    <a href="bookmark.html">
+                        Bookmark
+                    </a>
+
+                    <a href="history.html">
+                        History
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        Information
+                    </h3>
+
+                    <a href="about.html">
+                        About Us
+                    </a>
+
+                    <a href="faq.html">
+                        FAQ
+                    </a>
+
+                    <a href="contact.html">
+                        Contact
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        Legal
+                    </h3>
+
+                    <a href="terms.html">
+                        Terms of Service
+                    </a>
+
+                    <a href="privacy.html">
+                        Privacy Policy
+                    </a>
+
+                    <a href="#">
+                        Ad Policy
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    ©
+                    <span data-current-year>
+                        2026
+                    </span>
+                    Comicora. All rights reserved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- MOBILE BOTTOM NAV -->
+    <nav
+        class="mobile-bottom-nav"
+        aria-label="Navigasi mobile"
+    >
+
+        <a href="../index.html">
+
+            <span class="bottom-nav-icon">
+                ⌂
+            </span>
+
+            <span>
+                Home
+            </span>
+
+        </a>
+
+
+        <a href="discover.html">
+
+            <span class="bottom-nav-icon">
+                ◈
+            </span>
+
+            <span>
+                Discover
+            </span>
+
+        </a>
+
+
+        <a
+            href="bookmark.html"
+            class="active"
+        >
+
+            <span class="bottom-nav-icon">
+                ♡
+            </span>
+
+            <span>
+                Bookmark
+            </span>
+
+        </a>
+
+
+        <a href="history.html">
+
+            <span class="bottom-nav-icon">
+                ◷
+            </span>
+
+            <span>
+                History
+            </span>
+
+        </a>
+
+
+        <a href="profile.html">
+
+            <span class="bottom-nav-icon">
+                ○
+            </span>
+
+            <span>
+                Me
+            </span>
+
+        </a>
+
+    </nav>
+
+
+    <!-- SCRIPTS -->
+    <script src="../js/app.js"></script>
+
+    <script src="../js/pwa.js"></script>
+
+    <script src="../js/home.js"></script>
+
+    <script src="../js/bookmark.js"></script>
+
+</body>
+
+</html>

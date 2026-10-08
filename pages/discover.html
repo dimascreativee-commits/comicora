@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#00B14F"
+    >
+
+    <meta
+        name="description"
+        content="Temukan berbagai webcomic dan manhwa favoritmu di Comicora."
+    >
+
+    <title>
+        Discover - Comicora
+    </title>
+
+    <link
+        rel="manifest"
+        href="../manifest.json"
+    >
+
+    <link
+        rel="icon"
+        href="../assets/images/logo/favicon.png"
+    >
+
+    <!-- Google Fonts -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+
+    <link
+        rel="stylesheet"
+        href="../css/reset.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/variables.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/header.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/footer.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/cards.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css"
+    >
+
+    <style>
+        /* =========================================
+           DISCOVER PAGE
+           ========================================= */
+
+        .discover-page {
+            padding: 28px 0 60px;
+        }
+
+        .discover-header {
+            margin-bottom: 28px;
+        }
+
+        .discover-title {
+            margin: 0;
+
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .discover-description {
+            max-width: 620px;
+
+            margin-top: 10px;
+
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           SEARCH
+           ========================================= */
+
+        .discover-search {
+            display: flex;
+            align-items: center;
+
+            width: 100%;
+
+            margin-bottom: 24px;
+
+            padding: 4px;
+
+            background: var(--surface);
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+        }
+
+        .discover-search-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 44px;
+            height: 44px;
+
+            flex-shrink: 0;
+
+            color: var(--text-secondary);
+        }
+
+        .discover-search-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .discover-search input {
+            width: 100%;
+
+            height: 44px;
+
+            padding: 0 12px;
+
+            border: 0;
+            outline: 0;
+
+            background: transparent;
+
+            color: var(--text);
+            font-family: inherit;
+            font-size: 15px;
+        }
+
+        .discover-search input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .discover-search button {
+            height: 44px;
+
+            padding: 0 20px;
+
+            border: 0;
+            border-radius: 9px;
+
+            background: var(--primary);
+            color: #ffffff;
+
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .discover-search button:hover {
+            background: var(--primary-dark);
+        }
+
+        /* =========================================
+           FILTER TABS
+           ========================================= */
+
+        .discover-tabs {
+            display: flex;
+            align-items: center;
+
+            gap: 8px;
+
+            margin-bottom: 20px;
+
+            overflow-x: auto;
+
+            scrollbar-width: none;
+        }
+
+        .discover-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .discover-tab {
+            flex-shrink: 0;
+
+            padding: 10px 17px;
+
+            border: 1px solid var(--border);
+            border-radius: 999px;
+
+            background: var(--background);
+            color: var(--text-secondary);
+
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition:
+                background-color var(--transition-fast),
+                color var(--transition-fast),
+                border-color var(--transition-fast);
+        }
+
+        .discover-tab:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .discover-tab.is-active {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: #ffffff;
+        }
+
+        /* =========================================
+           GENRE FILTER
+           ========================================= */
+
+        .genre-filter {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-bottom: 28px;
+        }
+
+        .genre-filter-button {
+            padding: 8px 14px;
+
+            border: 1px solid var(--border);
+            border-radius: 8px;
+
+            background: var(--surface);
+            color: var(--text-secondary);
+
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+
+        .genre-filter-button:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .genre-filter-button.is-active {
+            border-color: var(--primary-light);
+            background: var(--primary-light);
+            color: var(--primary-dark);
+        }
+
+        /* =========================================
+           RESULTS HEADER
+           ========================================= */
+
+        .results-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 18px;
+        }
+
+        .results-title {
+            margin: 0;
+
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .results-count {
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        /* =========================================
+           EMPTY STATE
+           ========================================= */
+
+        .discover-empty {
+            display: none;
+
+            padding: 60px 20px;
+
+            text-align: center;
+        }
+
+        .discover-empty.is-visible {
+            display: block;
+        }
+
+        .discover-empty-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 64px;
+            height: 64px;
+
+            margin: 0 auto 18px;
+
+            border-radius: 16px;
+
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .discover-empty-icon svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .discover-empty h2 {
+            margin: 0 0 8px;
+
+            font-size: 20px;
+        }
+
+        .discover-empty p {
+            margin: 0;
+
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* =========================================
+           MOBILE
+           ========================================= */
+
+        @media (max-width: 767px) {
+
+            .discover-page {
+                padding: 26px 0 40px;
+            }
+
+            .discover-title {
+                font-size: 26px;
+            }
+
+            .discover-description {
+                font-size: 14px;
+            }
+
+            .discover-search {
+                margin-bottom: 18px;
+            }
+
+            .discover-search button {
+                padding: 0 15px;
+            }
+
+            .genre-filter {
+                flex-wrap: nowrap;
+
+                overflow-x: auto;
+
+                padding-bottom: 4px;
+
+                scrollbar-width: none;
+            }
+
+            .genre-filter::-webkit-scrollbar {
+                display: none;
+            }
+
+            .genre-filter-button {
+                flex-shrink: 0;
+            }
+
+            .results-header {
+                margin-bottom: 14px;
+            }
+
+            .results-title {
+                font-size: 18px;
+            }
+
+            .results-count {
+                font-size: 12px;
+            }
+
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================================
+         HEADER
+         ========================================= -->
+
+    <header class="site-header">
+
+        <div class="container header-container">
+
+            <!-- Mobile Menu Button -->
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Buka menu"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Logo -->
+            <a
+                href="../index.html"
+                class="comicora-logo"
+                aria-label="Comicora Home"
+            >
+                <span class="logo-mark">
+                    C
+                </span>
+
+                <span class="logo-text">
+                    COMICORA
+                </span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav
+                class="main-navigation"
+                aria-label="Navigasi utama"
+            >
+
+                <a
+                    href="../index.html"
+                    class="nav-link"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="discover.html"
+                    class="nav-link active"
+                >
+                    Discover
+                </a>
+
+                <a
+                    href="bookmark.html"
+                    class="nav-link"
+                >
+                    Bookmark
+                </a>
+
+                <a
+                    href="history.html"
+                    class="nav-link"
+                >
+                    History
+                </a>
+
+            </nav>
+
+            <!-- Header Actions -->
+            <div class="header-actions">
+
+                <!-- Search -->
+                <a
+                    href="search.html"
+                    class="header-icon-button"
+                    aria-label="Cari komik"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <circle
+                            cx="11"
+                            cy="11"
+                            r="7"
+                        ></circle>
+
+                        <line
+                            x1="16.5"
+                            y1="16.5"
+                            x2="21"
+                            y2="21"
+                        ></line>
+                    </svg>
+                </a>
+
+                <!-- Profile -->
+                <a
+                    href="profile.html"
+                    class="profile-button"
+                >
+                    <span class="profile-avatar">
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <circle
+                                cx="12"
+                                cy="8"
+                                r="4"
+                            ></circle>
+
+                            <path
+                                d="M4 21c0-4.2 3.6-7 8-7s8 2.8 8 7"
+                            ></path>
+                        </svg>
+                    </span>
+
+                    <span class="profile-label">
+                        Masuk
+                    </span>
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav
+            class="mobile-navigation"
+            id="mobileNavigation"
+            aria-label="Navigasi mobile"
+        >
+
+            <a
+                href="../index.html"
+                class="mobile-nav-link"
+            >
+                <span class="mobile-nav-icon">
+                    🏠
+                </span>
+
+                <span>
+                    Home
+                </span>
+            </a>
+
+            <a
+                href="discover.html"
+                class="mobile-nav-link active"
+            >
+                <span class="mobile-nav-icon">
+                    🔎
+                </span>
+
+                <span>
+                    Discover
+                </span>
+            </a>
+
+            <a
+                href="bookmark.html"
+                class="mobile-nav-link"
+            >
+                <span class="mobile-nav-icon">
+                    🔖
+                </span>
+
+                <span>
+                    Bookmark
+                </span>
+            </a>
+
+            <a
+                href="history.html"
+                class="mobile-nav-link"
+            >
+                <span class="mobile-nav-icon">
+                    🕘
+                </span>
+
+                <span>
+                    History
+                </span>
+            </a>
+
+            <a
+                href="profile.html"
+                class="mobile-nav-link"
+            >
+                <span class="mobile-nav-icon">
+                    👤
+                </span>
+
+                <span>
+                    Profile
+                </span>
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================================
+         MAIN
+         ========================================= -->
+
+    <main>
+
+        <section class="discover-page">
+
+            <div class="container">
+
+                <!-- Header -->
+
+                <div class="discover-header">
+
+                    <h1 class="discover-title">
+                        Discover
+                    </h1>
+
+                    <p class="discover-description">
+                        Temukan webcomic dan manhwa
+                        favoritmu dari berbagai genre.
+                    </p>
+
+                </div>
+
+
+                <!-- Search -->
+
+                <form
+                    class="discover-search"
+                    id="discover-search-form"
+                >
+
+                    <div class="discover-search-icon">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <circle
+                                cx="11"
+                                cy="11"
+                                r="7"
+                            ></circle>
+
+                            <path
+                                d="m20 20-4-4"
+                            ></path>
+                        </svg>
+
+                    </div>
+
+
+                    <input
+                        type="search"
+                        id="discover-search-input"
+                        placeholder="Cari judul komik..."
+                        autocomplete="off"
+                    >
+
+
+                    <button type="submit">
+                        Cari
+                    </button>
+
+                </form>
+
+
+                <!-- Tabs -->
+
+                <div
+                    class="discover-tabs"
+                    id="discover-tabs"
+                >
+
+                    <button
+                        type="button"
+                        class="discover-tab is-active"
+                        data-filter="all"
+                    >
+                        Semua
+                    </button>
+
+                    <button
+                        type="button"
+                        class="discover-tab"
+                        data-filter="popular"
+                    >
+                        Popular
+                    </button>
+
+                    <button
+                        type="button"
+                        class="discover-tab"
+                        data-filter="new"
+                    >
+                        Terbaru
+                    </button>
+
+                    <button
+                        type="button"
+                        class="discover-tab"
+                        data-filter="completed"
+                    >
+                        Completed
+                    </button>
+
+                </div>
+
+
+                <!-- Genres -->
+
+                <div
+                    class="genre-filter"
+                    id="genre-filter"
+                >
+
+                    <button
+                        type="button"
+                        class="genre-filter-button is-active"
+                        data-genre="all"
+                    >
+                        Semua Genre
+                    </button>
+
+                    <button
+                        type="button"
+                        class="genre-filter-button"
+                        data-genre="Action"
+                    >
+                        Action
+                    </button>
+
+                    <button
+                        type="button"
+                        class="genre-filter-button"
+                        data-genre="Romance"
+                    >
+                        Romance
+                    </button>
+
+                    <button
+                        type="button"
+                        class="genre-filter-button"
+                        data-genre="Fantasy"
+                    >
+                        Fantasy
+                    </button>
+
+                    <button
+                        type="button"
+                        class="genre-filter-button"
+                        data-genre="Comedy"
+                    >
+                        Comedy
+                    </button>
+
+                    <button
+                        type="button"
+                        class="genre-filter-button"
+                        data-genre="Drama"
+                    >
+                        Drama
+                    </button>
+
+                    <button
+                        type="button"
+                        class="genre-filter-button"
+                        data-genre="Horror"
+                    >
+                        Horror
+                    </button>
+
+                    <button
+                        type="button"
+                        class="genre-filter-button"
+                        data-genre="School"
+                    >
+                        School
+                    </button>
+
+                    <button
+                        type="button"
+                        class="genre-filter-button"
+                        data-genre="Thriller"
+                    >
+                        Thriller
+                    </button>
+
+                </div>
+
+
+                <!-- Results -->
+
+                <div class="results-header">
+
+                    <h2
+                        class="results-title"
+                        id="results-title"
+                    >
+                        Semua Komik
+                    </h2>
+
+                    <span
+                        class="results-count"
+                        id="results-count"
+                    >
+                        0 komik
+                    </span>
+
+                </div>
+
+
+                <!-- Comic Grid -->
+
+                <div
+                    class="comic-grid"
+                    id="discover-comics"
+                ></div>
+
+
+                <!-- Empty State -->
+
+                <div
+                    class="discover-empty"
+                    id="discover-empty"
+                >
+
+                    <div class="discover-empty-icon">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <circle
+                                cx="11"
+                                cy="11"
+                                r="7"
+                            ></circle>
+
+                            <path
+                                d="m20 20-4-4"
+                            ></path>
+                        </svg>
+
+                    </div>
+
+                    <h2>
+                        Komik tidak ditemukan
+                    </h2>
+
+                    <p>
+                        Coba gunakan kata kunci atau
+                        genre yang berbeda.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-main">
+
+                <div class="footer-brand">
+
+                    <a
+                        href="../index.html"
+                        class="footer-logo"
+                    >
+
+                        <span class="footer-logo-mark">
+                            C
+                        </span>
+
+                        COMICORA
+
+                    </a>
+
+                    <p class="footer-description">
+                        Platform webcomic dan manhwa
+                        untuk pembaca Indonesia.
+                    </p>
+
+                    <div class="footer-social">
+
+                        <a
+                            href="#"
+                            aria-label="Instagram"
+                        >
+                            IG
+                        </a>
+
+                        <a
+                            href="#"
+                            aria-label="TikTok"
+                        >
+                            TK
+                        </a>
+
+                        <a
+                            href="#"
+                            aria-label="X"
+                        >
+                            X
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3 class="footer-column-title">
+                        Explore
+                    </h3>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="../index.html">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="discover.html">
+                                Discover
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="bookmark.html">
+                                Bookmark
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="history.html">
+                                History
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3 class="footer-column-title">
+                        Information
+                    </h3>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="about.html">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="faq.html">
+                                FAQ
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html">
+                                Contact
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3 class="footer-column-title">
+                        Legal
+                    </h3>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="terms.html">
+                                Terms of Service
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="privacy.html">
+                                Privacy Policy
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Ad Policy
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p class="footer-copyright">
+                    © <span data-current-year></span>
+                    Comicora. All rights reserved.
+                </p>
+
+                <div class="footer-bottom-links">
+
+                    <a href="terms.html">
+                        Terms
+                    </a>
+
+                    <a href="privacy.html">
+                        Privacy
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================
+         MOBILE BOTTOM NAV
+         ========================================= -->
+
+    <nav class="bottom-nav">
+
+        <a
+            href="../index.html"
+            class="bottom-nav-item"
+        >
+            <span>⌂</span>
+            <small>Home</small>
+        </a>
+
+        <a
+            href="discover.html"
+            class="bottom-nav-item active"
+        >
+            <span>◉</span>
+            <small>Discover</small>
+        </a>
+
+        <a
+            href="bookmark.html"
+            class="bottom-nav-item"
+        >
+            <span>♡</span>
+            <small>Bookmark</small>
+        </a>
+
+        <a
+            href="history.html"
+            class="bottom-nav-item"
+        >
+            <span>◷</span>
+            <small>History</small>
+        </a>
+
+        <a
+            href="profile.html"
+            class="bottom-nav-item"
+        >
+            <span>●</span>
+            <small>Me</small>
+        </a>
+
+    </nav>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+         ========================================= -->
+
+    <script src="../js/app.js"></script>
+
+    <script src="../js/pwa.js"></script>
+
+    <script src="../js/home.js"></script>
+
+    <script src="../js/discover.js"></script>
+
+</body>
+
+</html>

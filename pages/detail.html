@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#00B14F"
+    >
+
+    <meta
+        name="description"
+        content="Detail komik Comicora."
+    >
+
+    <title>
+        Comic Detail - Comicora
+    </title>
+
+    <link
+        rel="manifest"
+        href="../manifest.json"
+    >
+
+    <link
+        rel="icon"
+        href="../assets/images/logo/favicon.png"
+    >
+
+    <!-- Google Fonts -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+
+    <link
+        rel="stylesheet"
+        href="../css/reset.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/variables.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/header.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/footer.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/cards.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css"
+    >
+
+    <style>
+        /* =========================================
+           DETAIL PAGE
+           ========================================= */
+
+        .detail-page {
+            padding: 40px 0 70px;
+        }
+
+        .detail-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            margin-bottom: 24px;
+
+            color: var(--text-secondary);
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition:
+                color var(--transition-fast);
+        }
+
+        .detail-back:hover {
+            color: var(--primary);
+        }
+
+        .detail-back svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* =========================================
+           HERO DETAIL
+           ========================================= */
+
+        .comic-detail {
+            display: grid;
+
+            grid-template-columns:
+                230px
+                minmax(0, 1fr);
+
+            gap: 32px;
+
+            padding: 28px;
+
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .comic-detail-cover {
+            position: relative;
+
+            width: 100%;
+
+            overflow: hidden;
+
+            aspect-ratio: 2 / 3;
+
+            border-radius: 12px;
+
+            background: var(--border);
+        }
+
+        .comic-detail-cover img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .comic-detail-content {
+            min-width: 0;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .comic-detail-status {
+            display: inline-flex;
+            align-self: flex-start;
+
+            padding: 6px 10px;
+
+            margin-bottom: 12px;
+
+            border-radius: 999px;
+
+            background: var(--primary-light);
+            color: var(--primary-dark);
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .comic-detail-title {
+            margin: 0;
+
+            font-size: 34px;
+            font-weight: 800;
+            line-height: 1.15;
+        }
+
+        .comic-detail-alternative {
+            margin-top: 8px;
+
+            color: var(--text-secondary);
+
+            font-size: 14px;
+        }
+
+        .comic-detail-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+
+            gap: 10px;
+
+            margin-top: 18px;
+        }
+
+        .comic-detail-meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+
+            color: var(--text-secondary);
+
+            font-size: 14px;
+        }
+
+        .comic-detail-meta-item strong {
+            color: var(--text);
+        }
+
+        .comic-detail-genres {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 18px;
+        }
+
+        .comic-detail-genre {
+            display: inline-flex;
+
+            padding: 6px 11px;
+
+            border-radius: 999px;
+
+            background: #ffffff;
+
+            border: 1px solid var(--border);
+
+            color: var(--text-secondary);
+
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .comic-detail-synopsis {
+            max-width: 760px;
+
+            margin-top: 20px;
+
+            color: var(--text-secondary);
+
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .comic-detail-creator {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 20px;
+
+            margin-top: 18px;
+        }
+
+        .creator-item {
+            display: flex;
+            flex-direction: column;
+
+            gap: 4px;
+        }
+
+        .creator-label {
+            color: var(--text-secondary);
+
+            font-size: 12px;
+        }
+
+        .creator-value {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* =========================================
+           ACTIONS
+           ========================================= */
+
+        .comic-detail-actions {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: auto;
+            padding-top: 28px;
+        }
+
+        .detail-read-button,
+        .detail-bookmark-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            min-height: 46px;
+
+            padding: 0 20px;
+
+            border-radius: 10px;
+
+            font-family: inherit;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .detail-read-button {
+            background: var(--primary);
+            color: #ffffff;
+
+            transition:
+                background-color var(--transition-fast);
+        }
+
+        .detail-read-button:hover {
+            background: var(--primary-dark);
+        }
+
+        .detail-bookmark-button {
+            background: #ffffff;
+
+            border: 1px solid var(--border);
+
+            color: var(--text);
+
+            transition:
+                border-color var(--transition-fast),
+                color var(--transition-fast);
+        }
+
+        .detail-bookmark-button:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .detail-read-button svg,
+        .detail-bookmark-button svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* =========================================
+           CHAPTER SECTION
+           ========================================= */
+
+        .chapter-section {
+            margin-top: 38px;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 16px;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .chapter-count {
+            color: var(--text-secondary);
+
+            font-size: 13px;
+        }
+
+        .chapter-list {
+            display: flex;
+            flex-direction: column;
+
+            overflow: hidden;
+
+            border: 1px solid var(--border);
+            border-radius: 14px;
+
+            background: var(--background);
+        }
+
+        .chapter-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 16px 18px;
+
+            border-bottom: 1px solid var(--border);
+
+            transition:
+                background-color var(--transition-fast);
+        }
+
+        .chapter-item:last-child {
+            border-bottom: 0;
+        }
+
+        .chapter-item:hover {
+            background: var(--surface);
+        }
+
+        .chapter-info {
+            min-width: 0;
+        }
+
+        .chapter-number {
+            display: block;
+
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .chapter-name {
+            display: block;
+
+            margin-top: 4px;
+
+            color: var(--text-secondary);
+
+            font-size: 12px;
+        }
+
+        .chapter-date {
+            flex-shrink: 0;
+
+            color: var(--text-secondary);
+
+            font-size: 12px;
+        }
+
+        .chapter-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 34px;
+            height: 34px;
+
+            flex-shrink: 0;
+
+            border-radius: 8px;
+
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .chapter-arrow svg {
+            width: 17px;
+            height: 17px;
+        }
+
+        /* =========================================
+           AD
+           ========================================= */
+
+        .detail-ad {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 90px;
+
+            margin-top: 30px;
+
+            border: 1px dashed var(--border);
+            border-radius: 12px;
+
+            background: var(--surface);
+
+            color: var(--text-secondary);
+
+            font-size: 11px;
+            letter-spacing: 0.08em;
+        }
+
+        /* =========================================
+           LOADING
+           ========================================= */
+
+        .detail-loading {
+            padding: 100px 20px;
+
+            text-align: center;
+
+            color: var(--text-secondary);
+
+            font-size: 14px;
+        }
+
+        .detail-not-found {
+            display: none;
+
+            padding: 100px 20px;
+
+            text-align: center;
+        }
+
+        .detail-not-found.is-visible {
+            display: block;
+        }
+
+        .detail-not-found h1 {
+            margin: 0 0 10px;
+
+            font-size: 24px;
+        }
+
+        .detail-not-found p {
+            margin: 0;
+
+            color: var(--text-secondary);
+        }
+
+        .detail-not-found a {
+            display: inline-flex;
+
+            margin-top: 22px;
+
+            padding: 11px 18px;
+
+            border-radius: 9px;
+
+            background: var(--primary);
+            color: #ffffff;
+
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* =========================================
+           MOBILE
+           ========================================= */
+
+        @media (max-width: 767px) {
+
+            .detail-page {
+                padding: 25px 0 45px;
+            }
+
+            .comic-detail {
+                grid-template-columns: 110px minmax(0, 1fr);
+
+                gap: 16px;
+
+                padding: 16px;
+
+                border-radius: 14px;
+            }
+
+            .comic-detail-title {
+                font-size: 21px;
+            }
+
+            .comic-detail-alternative {
+                font-size: 12px;
+            }
+
+            .comic-detail-meta {
+                gap: 7px;
+
+                margin-top: 12px;
+            }
+
+            .comic-detail-meta-item {
+                font-size: 12px;
+            }
+
+            .comic-detail-genres {
+                gap: 5px;
+
+                margin-top: 12px;
+            }
+
+            .comic-detail-genre {
+                padding: 5px 8px;
+
+                font-size: 10px;
+            }
+
+            .comic-detail-synopsis {
+                grid-column: 1 / -1;
+
+                margin-top: 4px;
+
+                font-size: 13px;
+                line-height: 1.6;
+            }
+
+            .comic-detail-creator {
+                grid-column: 1 / -1;
+
+                margin-top: 0;
+            }
+
+            .comic-detail-actions {
+                grid-column: 1 / -1;
+
+                margin-top: 0;
+                padding-top: 8px;
+            }
+
+            .detail-read-button,
+            .detail-bookmark-button {
+                flex: 1;
+
+                min-width: 0;
+
+                padding: 0 12px;
+            }
+
+            .section-heading h2 {
+                font-size: 20px;
+            }
+
+            .chapter-item {
+                padding: 14px;
+            }
+
+            .chapter-date {
+                display: none;
+            }
+
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================================
+         HEADER
+         ========================================= -->
+
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <button
+                type="button"
+                class="menu-toggle"
+                aria-label="Buka menu"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+
+            <a
+                href="../index.html"
+                class="logo"
+            >
+                <span class="logo-mark">
+                    C
+                </span>
+
+                <span>
+                    COMICORA
+                </span>
+            </a>
+
+
+            <nav class="desktop-nav">
+
+                <a href="../index.html">
+                    Home
+                </a>
+
+                <a href="discover.html">
+                    Discover
+                </a>
+
+                <a href="bookmark.html">
+                    Bookmark
+                </a>
+
+                <a href="history.html">
+                    History
+                </a>
+
+            </nav>
+
+
+            <div class="header-actions">
+
+                <a
+                    href="search.html"
+                    class="header-search"
+                    aria-label="Cari komik"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <circle
+                            cx="11"
+                            cy="11"
+                            r="7"
+                        ></circle>
+
+                        <path
+                            d="m20 20-4-4"
+                        ></path>
+                    </svg>
+                </a>
+
+
+                <a
+                    href="profile.html"
+                    class="header-profile"
+                    aria-label="Profil"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <circle
+                            cx="12"
+                            cy="8"
+                            r="4"
+                        ></circle>
+
+                        <path
+                            d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"
+                        ></path>
+                    </svg>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="mobile-menu"
+            aria-hidden="true"
+        >
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="discover.html">
+                Discover
+            </a>
+
+            <a href="bookmark.html">
+                Bookmark
+            </a>
+
+            <a href="history.html">
+                History
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         MAIN
+         ========================================= -->
+
+    <main>
+
+        <section class="detail-page">
+
+            <div class="container">
+
+                <a
+                    href="javascript:history.back()"
+                    class="detail-back"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <path d="M19 12H5"></path>
+
+                        <path d="m12 19-7-7 7-7"></path>
+                    </svg>
+
+                    Kembali
+
+                </a>
+
+
+                <!-- Loading -->
+
+                <div
+                    class="detail-loading"
+                    id="detail-loading"
+                >
+                    Memuat detail komik...
+                </div>
+
+
+                <!-- Detail -->
+
+                <div
+                    id="comic-detail"
+                    hidden
+                >
+
+                    <div class="comic-detail">
+
+                        <div class="comic-detail-cover">
+
+                            <img
+                                id="detail-cover"
+                                src="../assets/images/covers/placeholder.jpg"
+                                alt="Comic cover"
+                            >
+
+                        </div>
+
+
+                        <div class="comic-detail-content">
+
+                            <span
+                                class="comic-detail-status"
+                                id="detail-status"
+                            >
+                                Ongoing
+                            </span>
+
+
+                            <h1
+                                class="comic-detail-title"
+                                id="detail-title"
+                            >
+                                Comic Title
+                            </h1>
+
+
+                            <p
+                                class="comic-detail-alternative"
+                                id="detail-alternative"
+                            ></p>
+
+
+                            <div
+                                class="comic-detail-meta"
+                                id="detail-meta"
+                            ></div>
+
+
+                            <div
+                                class="comic-detail-genres"
+                                id="detail-genres"
+                            ></div>
+
+
+                            <p
+                                class="comic-detail-synopsis"
+                                id="detail-synopsis"
+                            ></p>
+
+
+                            <div
+                                class="comic-detail-creator"
+                                id="detail-creator"
+                            ></div>
+
+
+                            <div class="comic-detail-actions">
+
+                                <a
+                                    href="#"
+                                    id="read-first-button"
+                                    class="detail-read-button"
+                                >
+
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="currentColor"
+                                    >
+                                        <path
+                                            d="M8 5v14l11-7z"
+                                        ></path>
+                                    </svg>
+
+                                    Mulai Baca
+
+                                </a>
+
+
+                                <button
+                                    type="button"
+                                    id="detail-bookmark-button"
+                                    class="detail-bookmark-button"
+                                    data-bookmark=""
+                                >
+
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            d="M6 4.5A2.5 2.5 0 0 1 8.5 2h7A2.5 2.5 0 0 1 18 4.5V21l-6-3.5L6 21V4.5Z"
+                                        ></path>
+                                    </svg>
+
+                                    <span>
+                                        Bookmark
+                                    </span>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Advertisement -->
+
+                    <div class="detail-ad">
+                        ADVERTISEMENT
+                    </div>
+
+
+                    <!-- Chapters -->
+
+                    <section class="chapter-section">
+
+                        <div class="section-heading">
+
+                            <h2>
+                                Daftar Chapter
+                            </h2>
+
+                            <span
+                                class="chapter-count"
+                                id="chapter-count"
+                            >
+                                0 chapter
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="chapter-list"
+                            id="chapter-list"
+                        ></div>
+
+                    </section>
+
+                </div>
+
+
+                <!-- Not Found -->
+
+                <div
+                    class="detail-not-found"
+                    id="detail-not-found"
+                >
+
+                    <h1>
+                        Komik tidak ditemukan
+                    </h1>
+
+                    <p>
+                        Komik yang kamu cari tidak tersedia
+                        atau sudah tidak dapat diakses.
+                    </p>
+
+                    <a href="discover.html">
+                        Kembali ke Discover
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-main">
+
+                <div class="footer-brand">
+
+                    <a
+                        href="../index.html"
+                        class="footer-logo"
+                    >
+                        <span class="footer-logo-mark">
+                            C
+                        </span>
+
+                        COMICORA
+                    </a>
+
+                    <p class="footer-description">
+                        Platform webcomic dan manhwa
+                        untuk pembaca Indonesia.
+                    </p>
+
+                    <div class="footer-social">
+
+                        <a href="#">
+                            IG
+                        </a>
+
+                        <a href="#">
+                            TK
+                        </a>
+
+                        <a href="#">
+                            X
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3 class="footer-column-title">
+                        Explore
+                    </h3>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="../index.html">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="discover.html">
+                                Discover
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="bookmark.html">
+                                Bookmark
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="history.html">
+                                History
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3 class="footer-column-title">
+                        Information
+                    </h3>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="about.html">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="faq.html">
+                                FAQ
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html">
+                                Contact
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3 class="footer-column-title">
+                        Legal
+                    </h3>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="terms.html">
+                                Terms of Service
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="privacy.html">
+                                Privacy Policy
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Ad Policy
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p class="footer-copyright">
+                    ©
+                    <span data-current-year></span>
+                    Comicora.
+                    All rights reserved.
+                </p>
+
+                <div class="footer-bottom-links">
+
+                    <a href="terms.html">
+                        Terms
+                    </a>
+
+                    <a href="privacy.html">
+                        Privacy
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================
+         MOBILE BOTTOM NAV
+         ========================================= -->
+
+    <nav class="bottom-nav">
+
+        <a
+            href="../index.html"
+            class="bottom-nav-item"
+        >
+            <span>⌂</span>
+            <small>Home</small>
+        </a>
+
+        <a
+            href="discover.html"
+            class="bottom-nav-item"
+        >
+            <span>◉</span>
+            <small>Discover</small>
+        </a>
+
+        <a
+            href="bookmark.html"
+            class="bottom-nav-item"
+        >
+            <span>♡</span>
+            <small>Bookmark</small>
+        </a>
+
+        <a
+            href="history.html"
+            class="bottom-nav-item"
+        >
+            <span>◷</span>
+            <small>History</small>
+        </a>
+
+        <a
+            href="profile.html"
+            class="bottom-nav-item"
+        >
+            <span>●</span>
+            <small>Me</small>
+        </a>
+
+    </nav>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+         ========================================= -->
+
+    <script src="../js/app.js"></script>
+
+    <script src="../js/pwa.js"></script>
+
+    <script src="../js/home.js"></script>
+
+    <script src="../js/detail.js"></script>
+
+</body>
+
+</html>

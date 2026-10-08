@@ -1,0 +1,700 @@
+/* ==========================================
+   COMICORA V1
+   HOME PAGE CSS
+========================================== */
+
+
+/* ==========================================
+   HERO SECTION
+========================================== */
+
+.hero-section {
+    width: 100%;
+
+    padding-top: 28px;
+    padding-bottom: 12px;
+}
+
+
+/* ==========================================
+   HERO CARD
+========================================== */
+
+.hero-card {
+    position: relative;
+
+    min-height: 420px;
+
+    overflow: hidden;
+
+    background-color: #071C12;
+
+    border-radius: var(--radius-xl);
+
+    box-shadow: var(--shadow-md);
+}
+
+
+/* ==========================================
+   HERO BACKGROUND
+========================================== */
+
+.hero-background {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+
+/* ==========================================
+   HERO BACKGROUND IMAGE
+========================================== */
+
+.hero-background-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    background-color: #071C12;
+}
+
+
+/* ==========================================
+   HERO GRADIENT
+========================================== */
+
+.hero-background::after {
+    position: absolute;
+
+    inset: 0;
+
+    content: "";
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(7, 28, 18, 0.96) 0%,
+            rgba(7, 28, 18, 0.82) 30%,
+            rgba(7, 28, 18, 0.45) 60%,
+            rgba(7, 28, 18, 0.08) 100%
+        );
+}
+
+
+/* ==========================================
+   HERO CONTENT
+========================================== */
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    width: 55%;
+
+    min-height: 420px;
+
+    padding:
+        60px
+        60px;
+
+    color: var(--color-text-white);
+}
+
+
+/* ==========================================
+   HERO BADGE
+========================================== */
+
+.hero-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    width: fit-content;
+
+    margin-bottom: 14px;
+
+    padding:
+        6px
+        10px;
+
+    background-color: rgba(0, 177, 79, 0.16);
+
+    color: #63E69A;
+
+    border: 1px solid rgba(99, 230, 154, 0.25);
+
+    border-radius: var(--radius-sm);
+
+    font-size: 11px;
+
+    font-weight: var(--font-weight-bold);
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+
+/* ==========================================
+   HERO TITLE
+========================================== */
+
+.hero-title {
+    max-width: 560px;
+
+    color: var(--color-text-white);
+
+    font-size: 42px;
+
+    font-weight: var(--font-weight-bold);
+
+    line-height: 1.12;
+
+    letter-spacing: -0.03em;
+}
+
+
+/* ==========================================
+   HERO DESCRIPTION
+========================================== */
+
+.hero-description {
+    max-width: 500px;
+
+    margin-top: 16px;
+
+    color: rgba(255, 255, 255, 0.76);
+
+    font-size: var(--font-size-md);
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   HERO ACTIONS
+========================================== */
+
+.hero-actions {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 28px;
+}
+
+
+/* ==========================================
+   ADVERTISEMENT SECTION
+========================================== */
+
+.advertisement-section {
+    width: 100%;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+/* ==========================================
+   ADVERTISEMENT CARD
+========================================== */
+
+.advertisement-card {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    width: 100%;
+
+    min-height: 100px;
+
+    padding: 20px;
+
+    background-color: var(--color-surface);
+
+    border: 1px solid var(--color-border);
+
+    border-radius: var(--radius-lg);
+}
+
+
+/* ==========================================
+   ADVERTISEMENT LABEL
+========================================== */
+
+.advertisement-label {
+    margin-bottom: 7px;
+
+    color: var(--color-text-muted);
+
+    font-size: 10px;
+
+    font-weight: var(--font-weight-semibold);
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+}
+
+
+/* ==========================================
+   ADVERTISEMENT CONTENT
+========================================== */
+
+.advertisement-content {
+    color: var(--color-text-secondary);
+
+    font-size: 13px;
+
+    text-align: center;
+}
+
+
+/* ==========================================
+   CONTINUE SECTION
+========================================== */
+
+.continue-section {
+    padding-top: 38px;
+}
+
+
+/* ==========================================
+   GENRE SECTION
+========================================== */
+
+.genre-section {
+    background-color: var(--color-surface);
+}
+
+
+/* ==========================================
+   INSTALL SECTION
+========================================== */
+
+.install-section {
+    width: 100%;
+
+    padding:
+        50px
+        0;
+}
+
+
+/* ==========================================
+   INSTALL CARD
+========================================== */
+
+.install-card {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding:
+        34px
+        38px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #071C12 0%,
+            #0B2B1B 100%
+        );
+
+    border-radius: var(--radius-xl);
+
+    box-shadow: var(--shadow-md);
+}
+
+
+/* ==========================================
+   INSTALL CONTENT
+========================================== */
+
+.install-content {
+    min-width: 0;
+}
+
+
+/* ==========================================
+   INSTALL LABEL
+========================================== */
+
+.install-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #63E69A;
+
+    font-size: 11px;
+
+    font-weight: var(--font-weight-bold);
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+
+/* ==========================================
+   INSTALL TITLE
+========================================== */
+
+.install-title {
+    color: var(--color-text-white);
+
+    font-size: 24px;
+
+    font-weight: var(--font-weight-bold);
+
+    line-height: 1.25;
+}
+
+
+/* ==========================================
+   INSTALL DESCRIPTION
+========================================== */
+
+.install-description {
+    max-width: 600px;
+
+    margin-top: 8px;
+
+    color: rgba(255, 255, 255, 0.68);
+
+    font-size: var(--font-size-sm);
+
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   INSTALL BUTTON
+========================================== */
+
+.install-button {
+    flex-shrink: 0;
+
+    white-space: nowrap;
+}
+
+
+/* ==========================================
+   HERO TABLET
+========================================== */
+
+@media (max-width: 1024px) {
+
+    .hero-card {
+        min-height: 380px;
+    }
+
+    .hero-content {
+        width: 65%;
+
+        min-height: 380px;
+
+        padding:
+            45px;
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .hero-description {
+        max-width: 450px;
+    }
+}
+
+
+/* ==========================================
+   HERO SMALL TABLET
+========================================== */
+
+@media (max-width: 900px) {
+
+    .hero-section {
+        padding-top: 20px;
+    }
+
+    .hero-card {
+        min-height: 350px;
+    }
+
+    .hero-content {
+        width: 72%;
+
+        min-height: 350px;
+
+        padding:
+            38px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+  .install-card {
+    padding:
+        28px
+        30px;
+}
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 767px) {
+
+    .hero-section {
+        padding-top: 14px;
+
+        padding-bottom: 4px;
+    }
+
+
+    /* --------------------------------------
+       HERO CARD
+    --------------------------------------- */
+
+    .hero-card {
+        min-height: 390px;
+
+        border-radius: var(--radius-lg);
+    }
+
+
+    /* --------------------------------------
+       HERO BACKGROUND
+    --------------------------------------- */
+
+    .hero-background::after {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(7, 28, 18, 0.20) 0%,
+                rgba(7, 28, 18, 0.58) 45%,
+                rgba(7, 28, 18, 0.97) 100%
+            );
+    }
+
+
+    /* --------------------------------------
+       HERO CONTENT
+    --------------------------------------- */
+
+    .hero-content {
+        justify-content: flex-end;
+
+        width: 100%;
+
+        min-height: 390px;
+
+        padding:
+            26px
+            20px;
+    }
+
+
+    /* --------------------------------------
+       HERO BADGE
+    --------------------------------------- */
+
+    .hero-badge {
+        margin-bottom: 10px;
+
+        padding:
+            5px
+            8px;
+
+        font-size: 9px;
+    }
+
+
+    /* --------------------------------------
+       HERO TITLE
+    --------------------------------------- */
+
+    .hero-title {
+        max-width: 100%;
+
+        font-size: 28px;
+
+        line-height: 1.15;
+    }
+
+
+    /* --------------------------------------
+       HERO DESCRIPTION
+    --------------------------------------- */
+
+    .hero-description {
+        max-width: 100%;
+
+        margin-top: 10px;
+
+        font-size: 13px;
+
+        line-height: 1.55;
+    }
+
+
+    /* --------------------------------------
+       HERO ACTIONS
+    --------------------------------------- */
+
+    .hero-actions {
+        width: 100%;
+
+        margin-top: 18px;
+
+        gap: 8px;
+    }
+
+    .hero-actions .button {
+        flex: 1;
+
+        min-width: 0;
+    }
+
+
+    /* --------------------------------------
+       ADVERTISEMENT
+    --------------------------------------- */
+
+    .advertisement-section {
+        padding-top: 14px;
+
+        padding-bottom: 14px;
+    }
+
+    .advertisement-card {
+        min-height: 78px;
+
+        padding: 14px;
+    }
+
+    .advertisement-label {
+        font-size: 9px;
+    }
+
+    .advertisement-content {
+        font-size: 11px;
+    }
+
+
+    /* --------------------------------------
+       CONTINUE
+    --------------------------------------- */
+
+    .continue-section {
+        padding-top: 32px;
+    }
+
+
+    /* --------------------------------------
+       INSTALL
+    --------------------------------------- */
+
+    .install-section {
+        padding:
+            35px
+            0;
+    }
+
+    .install-card {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 20px;
+
+        padding:
+            24px
+            20px;
+
+        border-radius: var(--radius-lg);
+    }
+
+    .install-title {
+        font-size: 20px;
+    }
+
+    .install-description {
+        font-size: 13px;
+    }
+
+    .install-button {
+        width: 100%;
+    }
+}
+
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 380px) {
+
+    .hero-card {
+        min-height: 360px;
+    }
+
+    .hero-content {
+        min-height: 360px;
+
+        padding:
+            22px
+            16px;
+    }
+
+    .hero-title {
+        font-size: 25px;
+    }
+
+    .hero-description {
+        font-size: 12px;
+    }
+
+    .hero-actions .button {
+        padding-left: 12px;
+        padding-right: 12px;
+
+        font-size: 12px;
+    }
+
+    .install-title {
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#000000"
+    >
+
+    <meta
+        name="description"
+        content="Baca webcomic di Comicora."
+    >
+
+    <title>
+        Reader - Comicora
+    </title>
+
+    <link
+        rel="manifest"
+        href="../manifest.json"
+    >
+
+    <link
+        rel="icon"
+        href="../assets/images/logo/favicon.png"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+
+    <link
+        rel="stylesheet"
+        href="../css/reset.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/variables.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/global.css"
+    >
+
+    <style>
+        /* =========================================
+           READER
+           ========================================= */
+
+        body.reader-page-body {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .reader-page {
+            min-height: 100vh;
+
+            background: #000000;
+        }
+
+        /* =========================================
+           READER HEADER
+           ========================================= */
+
+        .reader-header {
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            min-height: 58px;
+
+            padding: 0 18px;
+
+            background: rgba(0, 0, 0, 0.94);
+
+            border-bottom: 1px solid
+                rgba(255, 255, 255, 0.08);
+
+            backdrop-filter: blur(12px);
+        }
+
+        .reader-header-left {
+            display: flex;
+            align-items: center;
+
+            min-width: 0;
+
+            gap: 12px;
+        }
+
+        .reader-back {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 36px;
+            height: 36px;
+
+            flex-shrink: 0;
+
+            color: #ffffff;
+
+            border-radius: 8px;
+
+            transition:
+                background-color 0.2s ease;
+        }
+
+        .reader-back:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .reader-back svg {
+            width: 19px;
+            height: 19px;
+        }
+
+        .reader-title-wrapper {
+            min-width: 0;
+        }
+
+        .reader-comic-title {
+            display: block;
+
+            max-width: 320px;
+
+            overflow: hidden;
+
+            color: #ffffff;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .reader-chapter-title {
+            display: block;
+
+            margin-top: 2px;
+
+            color: #9ca3af;
+
+            font-size: 11px;
+        }
+
+        .reader-header-right {
+            display: flex;
+            align-items: center;
+
+            gap: 6px;
+        }
+
+        .reader-header-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 36px;
+            height: 36px;
+
+            border: 0;
+
+            background: transparent;
+            color: #ffffff;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            transition:
+                background-color 0.2s ease;
+        }
+
+        .reader-header-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .reader-header-button svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* =========================================
+           PROGRESS BAR
+           ========================================= */
+
+        .reader-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            z-index: 1100;
+
+            width: 0;
+            height: 3px;
+
+            background: var(--primary);
+
+            transition:
+                width 0.1s linear;
+        }
+
+        /* =========================================
+           READER CONTENT
+           ========================================= */
+
+        .reader-content {
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .reader-images {
+            width: 100%;
+            max-width: 900px;
+
+            margin: 0 auto;
+        }
+
+        .reader-page-image {
+            display: block;
+
+            width: 100%;
+            height: auto;
+
+            margin: 0;
+
+            background: #111111;
+
+            object-fit: contain;
+        }
+
+        /* =========================================
+           IMAGE STATES
+           ========================================= */
+
+        .reader-image-wrapper {
+            position: relative;
+
+            width: 100%;
+
+            min-height: 200px;
+
+            background: #111111;
+        }
+
+        .reader-image-wrapper.is-loading::before {
+            content: "Memuat halaman...";
+
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+
+            transform:
+                translate(-50%, -50%);
+
+            color: #777777;
+
+            font-size: 12px;
+
+            white-space: nowrap;
+        }
+
+        .reader-page-image.is-loaded {
+            min-height: 0;
+        }
+
+        .reader-image-error {
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            min-height: 220px;
+
+            padding: 20px;
+
+            color: #777777;
+
+            text-align: center;
+
+            font-size: 13px;
+        }
+
+        .reader-image-wrapper.is-error
+            .reader-image-error {
+            display: flex;
+        }
+
+        .reader-image-wrapper.is-error
+            .reader-page-image {
+            display: none;
+        }
+
+        /* =========================================
+           LOADING
+           ========================================= */
+
+        .reader-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 400px;
+
+            padding: 40px;
+
+            color: #9ca3af;
+
+            font-size: 14px;
+        }
+
+        .reader-loading-spinner {
+            width: 22px;
+            height: 22px;
+
+            margin-right: 10px;
+
+            border: 2px solid
+                rgba(255, 255, 255, 0.15);
+
+            border-top-color: #ffffff;
+
+            border-radius: 50%;
+
+            animation:
+                reader-spin 0.8s linear infinite;
+        }
+
+        @keyframes reader-spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* =========================================
+           READER EMPTY
+           ========================================= */
+
+        .reader-empty {
+            display: none;
+
+            min-height: 400px;
+
+            padding: 60px 20px;
+
+            text-align: center;
+        }
+
+        .reader-empty.is-visible {
+            display: block;
+        }
+
+        .reader-empty h1 {
+            margin: 0 0 10px;
+
+            font-size: 24px;
+        }
+
+        .reader-empty p {
+            margin: 0;
+
+            color: #9ca3af;
+
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           BETWEEN CHAPTER AD
+           ========================================= */
+
+        .reader-ad {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+            max-width: 900px;
+
+            min-height: 90px;
+
+            margin: 20px auto;
+
+            border: 1px dashed
+                rgba(255, 255, 255, 0.15);
+
+            color: #666666;
+
+            font-size: 10px;
+            letter-spacing: 0.1em;
+        }
+
+        /* =========================================
+           CHAPTER NAVIGATION
+           ========================================= */
+
+        .reader-navigation {
+            width: 100%;
+            max-width: 900px;
+
+            padding: 28px 18px 50px;
+
+            margin: 0 auto;
+        }
+
+        .reader-navigation-title {
+            margin-bottom: 16px;
+
+            color: #ffffff;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            text-align: center;
+        }
+
+        .reader-navigation-buttons {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1.2fr
+                1fr;
+
+            gap: 8px;
+        }
+
+        .reader-nav-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+
+            min-height: 44px;
+
+            padding: 0 12px;
+
+            border: 1px solid
+                rgba(255, 255, 255, 0.12);
+
+            border-radius: 9px;
+
+            background: #111111;
+            color: #ffffff;
+
+            font-family: inherit;
+
+            font-size: 12px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition:
+                background-color 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .reader-nav-button:hover {
+            background: #1c1c1c;
+
+            border-color:
+                rgba(255, 255, 255, 0.25);
+        }
+
+        .reader-nav-button.primary {
+            background: var(--primary);
+
+            border-color: var(--primary);
+
+            color: #ffffff;
+        }
+
+        .reader-nav-button.primary:hover {
+            background: var(--primary-dark);
+
+            border-color: var(--primary-dark);
+        }
+
+        .reader-nav-button:disabled {
+            opacity: 0.35;
+
+            cursor: not-allowed;
+        }
+
+        .reader-nav-button svg {
+            width: 16px;
+            height: 16px;
+
+            flex-shrink: 0;
+        }
+
+        /* =========================================
+           CHAPTER SELECTOR
+           ========================================= */
+
+        .reader-chapter-selector {
+            display: none;
+
+            position: fixed;
+
+            top: 60px;
+            right: 14px;
+
+            z-index: 1001;
+
+            width: min(
+                320px,
+                calc(100vw - 28px)
+            );
+
+            max-height: 70vh;
+
+            overflow-y: auto;
+
+            padding: 12px;
+
+            background: #111111;
+
+            border: 1px solid
+                rgba(255, 255, 255, 0.12);
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 18px 45px
+                rgba(0, 0, 0, 0.45);
+        }
+
+        .reader-chapter-selector.is-open {
+            display: block;
+        }
+
+        .reader-selector-title {
+            padding: 6px 8px 12px;
+
+            color: #ffffff;
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .reader-selector-list {
+            display: flex;
+            flex-direction: column;
+
+            gap: 4px;
+        }
+
+        .reader-selector-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            width: 100%;
+
+            padding: 10px;
+
+            border: 0;
+
+            border-radius: 8px;
+
+            background: transparent;
+            color: #ffffff;
+
+            font-family: inherit;
+
+            font-size: 12px;
+
+            text-align: left;
+
+            cursor: pointer;
+        }
+
+        .reader-selector-item:hover {
+            background: #1c1c1c;
+        }
+
+        .reader-selector-item.active {
+            background: var(--primary);
+
+            color: #ffffff;
+        }
+
+        .reader-selector-item span:last-child {
+            color: #888888;
+        }
+
+        .reader-selector-item.active span:last-child {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* =========================================
+           OFFLINE NOTICE
+           ========================================= */
+
+        .reader-offline {
+            display: none;
+
+            position: fixed;
+
+            left: 50%;
+
+            bottom: 20px;
+
+            z-index: 1200;
+
+            transform:
+                translateX(-50%);
+
+            width: max-content;
+            max-width:
+                calc(100% - 30px);
+
+            padding: 10px 15px;
+
+            border-radius: 9px;
+
+            background: #252525;
+
+            color: #ffffff;
+
+            font-size: 12px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(0, 0, 0, 0.35);
+        }
+
+        .reader-offline.is-visible {
+            display: block;
+        }
+
+        /* =========================================
+           MOBILE
+           ========================================= */
+
+        @media (max-width: 767px) {
+
+            .reader-header {
+                min-height: 54px;
+
+                padding: 0 10px;
+            }
+
+            .reader-comic-title {
+                max-width: 180px;
+
+                font-size: 13px;
+            }
+
+            .reader-chapter-title {
+                font-size: 10px;
+            }
+
+            .reader-header-button,
+            .reader-back {
+                width: 34px;
+                height: 34px;
+            }
+
+            .reader-images {
+                max-width: 100%;
+            }
+
+            .reader-ad {
+                min-height: 70px;
+
+                margin: 14px 0;
+            }
+
+            .reader-navigation {
+                padding:
+                    20px
+                    12px
+                    40px;
+            }
+
+            .reader-navigation-buttons {
+                grid-template-columns: 1fr;
+
+                gap: 7px;
+            }
+
+            .reader-nav-button {
+                min-height: 42px;
+            }
+
+        }
+
+        @media (min-width: 768px) {
+
+            .reader-images {
+                box-shadow:
+                    0 0 30px
+                    rgba(0, 0, 0, 0.25);
+            }
+
+        }
+    </style>
+</head>
+
+
+<body class="reader-page-body">
+
+    <!-- =========================================
+         PROGRESS BAR
+         ========================================= -->
+
+    <div
+        class="reader-progress"
+        id="reader-progress"
+    ></div>
+
+
+    <!-- =========================================
+         READER PAGE
+         ========================================= -->
+
+    <main class="reader-page">
+
+        <!-- Reader Header -->
+
+        <header class="reader-header">
+
+            <div class="reader-header-left">
+
+                <a
+                    href="#"
+                    class="reader-back"
+                    id="reader-back"
+                    aria-label="Kembali ke detail"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <path d="M19 12H5"></path>
+
+                        <path
+                            d="m12 19-7-7 7-7"
+                        ></path>
+                    </svg>
+
+                </a>
+
+
+                <div class="reader-title-wrapper">
+
+                    <span
+                        class="reader-comic-title"
+                        id="reader-comic-title"
+                    >
+                        Comicora
+                    </span>
+
+                    <span
+                        class="reader-chapter-title"
+                        id="reader-chapter-title"
+                    >
+                        Memuat...
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="reader-header-right">
+
+                <button
+                    type="button"
+                    class="reader-header-button"
+                    id="chapter-menu-button"
+                    aria-label="Daftar chapter"
+                    aria-expanded="false"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <path d="M4 6h16"></path>
+
+                        <path d="M4 12h16"></path>
+
+                        <path d="M4 18h16"></path>
+                    </svg>
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- Chapter Selector -->
+
+        <div
+            class="reader-chapter-selector"
+            id="reader-chapter-selector"
+        >
+
+            <div class="reader-selector-title">
+                Daftar Chapter
+            </div>
+
+            <div
+                class="reader-selector-list"
+                id="reader-selector-list"
+            ></div>
+
+        </div>
+
+
+        <!-- Reader Content -->
+
+        <section class="reader-content">
+
+            <div
+                class="reader-loading"
+                id="reader-loading"
+            >
+
+                <span
+                    class="reader-loading-spinner"
+                ></span>
+
+                Memuat chapter...
+
+            </div>
+
+
+            <div
+                class="reader-images"
+                id="reader-images"
+            ></div>
+
+
+            <div
+                class="reader-empty"
+                id="reader-empty"
+            >
+
+                <h1>
+                    Chapter tidak tersedia
+                </h1>
+
+                <p>
+                    Chapter yang kamu cari
+                    belum tersedia atau tidak
+                    dapat dimuat.
+                </p>
+
+            </div>
+
+
+            <!-- Advertisement -->
+
+            <div
+                class="reader-ad"
+                id="reader-ad"
+            >
+                ADVERTISEMENT
+            </div>
+
+
+            <!-- Navigation -->
+
+            <div
+                class="reader-navigation"
+                id="reader-navigation"
+            >
+
+                <div class="reader-navigation-title">
+                    Navigasi Chapter
+                </div>
+
+
+                <div class="reader-navigation-buttons">
+
+                    <button
+                        type="button"
+                        class="reader-nav-button"
+                        id="previous-chapter"
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                d="m15 18-6-6 6-6"
+                            ></path>
+                        </svg>
+
+                        Sebelumnya
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="reader-nav-button primary"
+                        id="chapter-list-button"
+                    >
+
+                        Daftar Chapter
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="reader-nav-button"
+                        id="next-chapter"
+                    >
+
+                        Selanjutnya
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                d="m9 18 6-6-6-6"
+                            ></path>
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Offline -->
+
+    <div
+        class="reader-offline"
+        id="reader-offline"
+    >
+        Koneksi terputus. Beberapa konten mungkin
+        tidak dapat dimuat.
+    </div>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+         ========================================= -->
+
+    <script src="../js/app.js"></script>
+
+    <script src="../js/pwa.js"></script>
+
+    <script src="../js/home.js"></script>
+
+    <script src="../js/reader.js"></script>
+
+</body>
+
+</html>

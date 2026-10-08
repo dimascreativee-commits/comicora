@@ -1,0 +1,42 @@
+{
+    "name": "Comicora - Baca Webcomic Indonesia",
+    "short_name": "Comicora",
+    "description": "Platform baca webcomic dan manhwa untuk pembaca Indonesia.",
+    "lang": "id-ID",
+    "dir": "ltr",
+
+    "start_url": "/",
+    "scope": "/",
+
+    "display": "standalone",
+    "orientation": "portrait",
+
+    "theme_color": "#00B14F",
+    "background_color": "#FFFFFF",
+
+    "categories": [
+        "books",
+        "entertainment"
+    ],
+
+    "icons": [
+        {
+            "src": "/assets/images/logo/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/assets/images/logo/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/assets/images/logo/icon-512-maskable.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

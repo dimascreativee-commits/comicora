@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#00B14F"
+    >
+
+    <meta
+        name="description"
+        content="Comicora adalah platform baca webcomic dan manhwa Indonesia."
+    >
+
+    <title>
+        Comicora — Baca Webcomic & Manhwa
+    </title>
+
+    <!-- PWA -->
+    <link
+        rel="manifest"
+        href="manifest.json"
+    >
+
+    <!-- Favicon -->
+    <link
+        rel="icon"
+        href="assets/images/logo/favicon.png"
+        type="image/png"
+    >
+
+    <!-- Google Fonts -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="css/reset.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/variables.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/header.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/footer.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/cards.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/home.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/responsive.css"
+    >
+</head>
+
+<body>
+
+    <!-- ==========================================
+         SITE HEADER
+    =========================================== -->
+
+    <header class="site-header">
+
+        <div class="container header-container">
+
+            <!-- Mobile Menu Button -->
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Buka menu"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Logo -->
+            <a
+                href="index.html"
+                class="comicora-logo"
+                aria-label="Comicora Home"
+            >
+                <span class="logo-mark">
+                    C
+                </span>
+
+                <span class="logo-text">
+                    COMICORA
+                </span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav
+                class="main-navigation"
+                aria-label="Navigasi utama"
+            >
+
+                <a
+                    href="index.html"
+                    class="nav-link active"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="pages/discover.html"
+                    class="nav-link"
+                >
+                    Discover
+                </a>
+
+                <a
+                    href="pages/bookmark.html"
+                    class="nav-link"
+                >
+                    Bookmark
+                </a>
+
+                <a
+                    href="pages/history.html"
+                    class="nav-link"
+                >
+                    History
+                </a>
+
+            </nav>
+
+            <!-- Header Actions -->
+            <div class="header-actions">
+
+                <!-- Search -->
+                <a
+                    href="pages/search.html"
+                    class="header-icon-button"
+                    aria-label="Cari komik"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <circle
+                            cx="11"
+                            cy="11"
+                            r="7"
+                        ></circle>
+
+                        <line
+                            x1="16.5"
+                            y1="16.5"
+                            x2="21"
+                            y2="21"
+                        ></line>
+                    </svg>
+                </a>
+
+                <!-- Profile -->
+                <a
+                    href="pages/profile.html"
+                    class="profile-button"
+                >
+                    <span class="profile-avatar">
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <circle
+                                cx="12"
+                                cy="8"
+                                r="4"
+                            ></circle>
+
+                            <path
+                                d="M4 21c0-4.2 3.6-7 8-7s8 2.8 8 7"
+                            ></path>
+                        </svg>
+                    </span>
+
+                    <span class="profile-label">
+                        Masuk
+                    </span>
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav
+            class="mobile-navigation"
+            id="mobileNavigation"
+            aria-label="Navigasi mobile"
+        >
+
+            <a
+                href="index.html"
+                class="mobile-nav-link active"
+            >
+                <span class="mobile-nav-icon">
+                    🏠
+                </span>
+
+                <span>
+                    Home
+                </span>
+            </a>
+
+            <a
+                href="pages/discover.html"
+                class="mobile-nav-link"
+            >
+                <span class="mobile-nav-icon">
+                    🔎
+                </span>
+
+                <span>
+                    Discover
+                </span>
+            </a>
+
+            <a
+                href="pages/bookmark.html"
+                class="mobile-nav-link"
+            >
+                <span class="mobile-nav-icon">
+                    🔖
+                </span>
+
+                <span>
+                    Bookmark
+                </span>
+            </a>
+
+            <a
+                href="pages/history.html"
+                class="mobile-nav-link"
+            >
+                <span class="mobile-nav-icon">
+                    🕘
+                </span>
+
+                <span>
+                    History
+                </span>
+            </a>
+
+            <a
+                href="pages/profile.html"
+                class="mobile-nav-link"
+            >
+                <span class="mobile-nav-icon">
+                    👤
+                </span>
+
+                <span>
+                    Profile
+                </span>
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ==========================================
+         MAIN CONTENT
+    =========================================== -->
+
+    <main>
+
+        <!-- ======================================
+             HERO / FEATURED COMIC
+        ======================================= -->
+
+        <section class="hero-section">
+
+            <div class="container">
+
+                <div class="hero-card">
+
+                    <!-- Hero Background -->
+                    <div class="hero-background">
+
+                        <img
+                            src="assets/images/banners/featured-banner.jpg"
+                            alt=""
+                            class="hero-background-image"
+                        >
+
+                    </div>
+
+                    <!-- Hero Content -->
+                    <div class="hero-content">
+
+                        <span class="hero-badge">
+                            FEATURED
+                        </span>
+
+                        <h1 class="hero-title">
+                            Temukan Cerita Favoritmu
+                        </h1>
+
+                        <p class="hero-description">
+                            Baca berbagai webcomic dan manhwa
+                            pilihan dalam Bahasa Indonesia.
+                        </p>
+
+                        <div class="hero-actions">
+
+                            <a
+                                href="pages/discover.html"
+                                class="button button-primary"
+                            >
+                                Jelajahi Komik
+                            </a>
+
+                            <a
+                                href="pages/discover.html"
+                                class="button button-secondary"
+                            >
+                                Lihat Semua
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             ADVERTISEMENT
+        ======================================= -->
+
+        <section class="advertisement-section">
+
+            <div class="container">
+
+                <div class="advertisement-card">
+
+                    <span class="advertisement-label">
+                        ADVERTISEMENT
+                    </span>
+
+                    <div class="advertisement-content">
+                        Ruang iklan Comicora
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             CONTINUE READING
+        ======================================= -->
+
+        <section class="content-section continue-section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-eyebrow">
+                            LANJUTKAN
+                        </span>
+
+                        <h2 class="section-title">
+                            Continue Reading
+                        </h2>
+                    </div>
+
+                    <a
+                        href="pages/history.html"
+                        class="section-link"
+                    >
+                        Lihat Semua
+                    </a>
+
+                </div>
+
+                <div
+                    class="comic-horizontal-list"
+                    id="continueReadingList"
+                >
+
+                    <!-- Generated by JavaScript -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             POPULAR COMICS
+        ======================================= -->
+
+        <section class="content-section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-eyebrow">
+                            PALING DIBACA
+                        </span>
+
+                        <h2 class="section-title">
+                            Popular Comics
+                        </h2>
+                    </div>
+
+                    <a
+                        href="pages/discover.html"
+                        class="section-link"
+                    >
+                        Lihat Semua
+                    </a>
+
+                </div>
+
+                <div
+                    class="comic-grid"
+                    id="popular-comics"
+                >
+
+                    <!-- Generated by JavaScript -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             LATEST UPDATES
+        ======================================= -->
+
+        <section class="content-section section-muted">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-eyebrow">
+                            UPDATE TERBARU
+                        </span>
+
+                        <h2 class="section-title">
+                            Latest Updates
+                        </h2>
+                    </div>
+
+                    <a
+                        href="pages/discover.html"
+                        class="section-link"
+                    >
+                        Lihat Semua
+                    </a>
+
+                </div>
+
+                <div
+                    class="comic-grid"
+                    id="latest-comics"
+                >
+
+                    <!-- Generated by JavaScript -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             RECOMMENDED
+        ======================================= -->
+
+        <section class="content-section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-eyebrow">
+                            UNTUK KAMU
+                        </span>
+
+                        <h2 class="section-title">
+                            Recommended
+                        </h2>
+                    </div>
+
+                    <a
+                        href="pages/discover.html"
+                        class="section-link"
+                    >
+                        Jelajahi
+                    </a>
+
+                </div>
+
+                <div
+                    class="comic-grid"
+                    id="recommended-comics"
+                >
+
+                    <!-- Generated by JavaScript -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             GENRE
+        ======================================= -->
+
+        <section class="content-section genre-section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-eyebrow">
+                            TEMUKAN CERITA
+                        </span>
+
+                        <h2 class="section-title">
+                            Browse by Genre
+                        </h2>
+                    </div>
+
+                </div>
+
+                <div class="genre-grid">
+
+                    <a
+                        href="pages/discover.html?genre=action"
+                        class="genre-card"
+                    >
+                        <span class="genre-icon">
+                            ⚔️
+                        </span>
+
+                        <span class="genre-name">
+                            Action
+                        </span>
+                    </a>
+
+                    <a
+                        href="pages/discover.html?genre=romance"
+                        class="genre-card"
+                    >
+                        <span class="genre-icon">
+                            💚
+                        </span>
+
+                        <span class="genre-name">
+                            Romance
+                        </span>
+                    </a>
+
+                    <a
+                        href="pages/discover.html?genre=fantasy"
+                        class="genre-card"
+                    >
+                        <span class="genre-icon">
+                            ✨
+                        </span>
+
+                        <span class="genre-name">
+                            Fantasy
+                        </span>
+                    </a>
+
+                    <a
+                        href="pages/discover.html?genre=comedy"
+                        class="genre-card"
+                    >
+                        <span class="genre-icon">
+                            😂
+                        </span>
+
+                        <span class="genre-name">
+                            Comedy
+                        </span>
+                    </a>
+
+                    <a
+                        href="pages/discover.html?genre=drama"
+                        class="genre-card"
+                    >
+                        <span class="genre-icon">
+                            🎭
+                        </span>
+
+                        <span class="genre-name">
+                            Drama
+                        </span>
+                    </a>
+
+                    <a
+                        href="pages/discover.html?genre=horror"
+                        class="genre-card"
+                    >
+                        <span class="genre-icon">
+                            👻
+                        </span>
+
+                        <span class="genre-name">
+                            Horror
+                        </span>
+                    </a>
+
+                    <a
+                        href="pages/discover.html?genre=school"
+                        class="genre-card"
+                    >
+                        <span class="genre-icon">
+                            🎓
+                        </span>
+
+                        <span class="genre-name">
+                            School
+                        </span>
+                    </a>
+
+                    <a
+                        href="pages/discover.html?genre=thriller"
+                        class="genre-card"
+                    >
+                        <span class="genre-icon">
+                            🔥
+                        </span>
+
+                        <span class="genre-name">
+                            Thriller
+                        </span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             PWA INSTALL CTA
+        ======================================= -->
+
+        <section class="install-section">
+
+            <div class="container">
+
+                <div class="install-card">
+
+                    <div class="install-content">
+
+                        <span class="install-label">
+                            COMICORA PWA
+                        </span>
+
+                        <h2 class="install-title">
+                            Bawa Comicora ke perangkatmu
+                        </h2>
+
+                        <p class="install-description">
+                            Install Comicora langsung dari browser
+                            untuk akses yang lebih cepat.
+                        </p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="button button-primary install-button"
+                        id="installPwaButton"
+                    >
+                        Install Comicora
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==========================================
+         FOOTER
+    =========================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-main">
+
+                <!-- Brand -->
+                <div class="footer-brand">
+
+                    <a
+                        href="index.html"
+                        class="footer-logo"
+                    >
+                        COMICORA
+                    </a>
+
+                    <p class="footer-description">
+                        Platform baca webcomic dan manhwa
+                        untuk pembaca Indonesia.
+                    </p>
+
+                    <!-- Social -->
+                    <div class="footer-social">
+
+                        <a
+                            href="#"
+                            class="social-link"
+                            aria-label="Instagram"
+                        >
+                            IG
+                        </a>
+
+                        <a
+                            href="#"
+                            class="social-link"
+                            aria-label="TikTok"
+                        >
+                            TK
+                        </a>
+
+                        <a
+                            href="#"
+                            class="social-link"
+                            aria-label="Discord"
+                        >
+                            DC
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Explore -->
+                <div class="footer-column">
+
+                    <h3 class="footer-heading">
+                        Explore
+                    </h3>
+
+                    <a href="pages/discover.html">
+                        Discover
+                    </a>
+
+                    <a href="pages/discover.html">
+                        Popular
+                    </a>
+
+                    <a href="pages/discover.html">
+                        Latest
+                    </a>
+
+                    <a href="pages/discover.html">
+                        Genres
+                    </a>
+
+                </div>
+
+
+                <!-- Information -->
+                <div class="footer-column">
+
+                    <h3 class="footer-heading">
+                        Information
+                    </h3>
+
+                    <a href="pages/about.html">
+                        About Us
+                    </a>
+
+                    <a href="pages/faq.html">
+                        FAQ
+                    </a>
+
+                    <a href="pages/contact.html">
+                        Contact Us
+                    </a>
+
+                </div>
+
+
+                <!-- Legal -->
+                <div class="footer-column">
+
+                    <h3 class="footer-heading">
+                        Legal
+                    </h3>
+
+                    <a href="pages/terms.html">
+                        Terms of Service
+                    </a>
+
+                    <a href="pages/privacy.html">
+                        Privacy Policy
+                    </a>
+
+                    <a href="#">
+                        Ad Policy
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 Comicora.
+                    All rights reserved.
+                </p>
+
+                <p>
+                    Made for Indonesian readers.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ==========================================
+         MOBILE BOTTOM NAVIGATION
+    =========================================== -->
+
+    <nav
+        class="bottom-navigation"
+        aria-label="Navigasi bawah"
+    >
+
+        <a
+            href="index.html"
+            class="bottom-nav-link active"
+        >
+            <span class="bottom-nav-icon">
+                🏠
+            </span>
+
+            <span>
+                Home
+            </span>
+        </a>
+
+        <a
+            href="pages/discover.html"
+            class="bottom-nav-link"
+        >
+            <span class="bottom-nav-icon">
+                🔎
+            </span>
+
+            <span>
+                Discover
+            </span>
+        </a>
+
+        <a
+            href="pages/bookmark.html"
+            class="bottom-nav-link"
+        >
+            <span class="bottom-nav-icon">
+                🔖
+            </span>
+
+            <span>
+                Bookmark
+            </span>
+        </a>
+
+        <a
+            href="pages/history.html"
+            class="bottom-nav-link"
+        >
+            <span class="bottom-nav-icon">
+                🕘
+            </span>
+
+            <span>
+                History
+            </span>
+        </a>
+
+        <a
+            href="pages/profile.html"
+            class="bottom-nav-link"
+        >
+            <span class="bottom-nav-icon">
+                👤
+            </span>
+
+            <span>
+                Me
+            </span>
+        </a>
+
+    </nav>
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+<script src="js/app.js"></script>
+<script src="js/api.js"></script>
+<script src="js/home.js"></script>
+<script src="js/pwa.js"></script>
+</body>
+
+</html>
